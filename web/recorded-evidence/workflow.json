@@ -1,0 +1,1762 @@
+{
+  "format": "releaseproof-public-workflow-observations-v1",
+  "notice": "Saved workflow snapshots and refusals. No new inference or authorization. Board entries are synthetic, drafts are not sent, and every draft under policy v2 requires human review.",
+  "snapshots": [
+    {
+      "name": "04-prompt-v2-change",
+      "status": "unqualified",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v1",
+        "fingerprint": "1613a006fb31b2091c8f08f26d0ee90cb40c00b5d2cf753dd0f9310b044a66d4"
+      },
+      "active": null,
+      "governance": {
+        "status": "unqualified",
+        "reasons": [
+          "The model, prompt, tools, policy, sampling, or corpus changed after qualification."
+        ],
+        "approval_valid": false,
+        "approval_eligible": false,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": false
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": false
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": false
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 0
+      },
+      "drift": {
+        "status": "unknown",
+        "p_value": null,
+        "observations": 0,
+        "mode": "not_run",
+        "mitigation": "none",
+        "details": []
+      },
+      "latest_event": [
+        {
+          "id": "e6-5",
+          "time": "2026-10-30T14:47:22+00:00",
+          "kind": "mutation",
+          "title": "Prompt contract changed",
+          "detail": "The prior evidence and approval cannot authorize this candidate. Fresh qualification is required.",
+          "status": "warning",
+          "source": "system"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": []
+    },
+    {
+      "recorded_at": "2026-10-30T14:49:51.634419+00:00",
+      "action": "qualify",
+      "http_status": 409,
+      "message": "This action could exceed the 2 MiB session evidence limit. Reduce the suite/repetitions, or export evidence and start a new workspace. Existing evidence is retained; nothing was dispatched.",
+      "provider_dispatched": false,
+      "name": "06a-storage-refusal"
+    },
+    {
+      "name": "09-v2-release-refused",
+      "status": "unqualified",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "label": "Nemotron 3 Ultra",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v1",
+        "fingerprint": "b4a8403c257311fa5c3d9c2715d772d3d89a8da45b46486b783925174a9497cf"
+      },
+      "active": null,
+      "governance": {
+        "status": "unqualified",
+        "reasons": [
+          "Qualification has failed or incomplete cases; release approval is blocked."
+        ],
+        "approval_valid": false,
+        "approval_eligible": false,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": true
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": false
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": false
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 1
+      },
+      "drift": {
+        "status": "unknown",
+        "p_value": null,
+        "observations": 0,
+        "mode": "not_run",
+        "mitigation": "none",
+        "details": []
+      },
+      "latest_event": [
+        {
+          "id": "e6-5",
+          "time": "2026-10-30T14:51:19+00:00",
+          "kind": "refusal",
+          "title": "Release approval refused",
+          "detail": "The FULL qualification corpus, including adversarial cases, must pass for the exact current model, prompt, tool, policy, corpus, sampling and mode. A quick smoke test cannot authorize a release.",
+          "status": "blocked",
+          "source": "system"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": []
+    },
+    {
+      "name": "10-stricter-review-policy",
+      "status": "unqualified",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "label": "Nemotron 3 Ultra",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "b48735b255d95f0f8a5770572425351d51a8c29e7bdcc3cd630bc84a4a24d4c5"
+      },
+      "active": null,
+      "governance": {
+        "status": "unqualified",
+        "reasons": [
+          "The model, prompt, tools, policy, sampling, or corpus changed after qualification."
+        ],
+        "approval_valid": false,
+        "approval_eligible": false,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": false
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": false
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": false
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 1
+      },
+      "drift": {
+        "status": "unknown",
+        "p_value": null,
+        "observations": 0,
+        "mode": "not_run",
+        "mitigation": "none",
+        "details": []
+      },
+      "latest_event": [
+        {
+          "id": "e7-6",
+          "time": "2026-10-30T14:51:40+00:00",
+          "kind": "mutation",
+          "title": "Policy contract changed",
+          "detail": "The prior evidence and approval cannot authorize this candidate. Fresh qualification is required.",
+          "status": "warning",
+          "source": "system"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": []
+    },
+    {
+      "name": "12-reviewed-release-approved",
+      "status": "approved",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c"
+      },
+      "active": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c",
+        "approved_at": "2026-10-30T14:52:41+00:00",
+        "mode": "live",
+        "qualification_id": "q-8-cb6e1e5ed7"
+      },
+      "governance": {
+        "status": "approved",
+        "reasons": [],
+        "approval_valid": true,
+        "approval_eligible": true,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": true
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": true
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": true
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 1,
+        "approval_node_id": "2d3ca0eddd34121d09723ab1c577b30fef31dc21986b4f816d39c36c983d8297"
+      },
+      "drift": {
+        "status": "unknown",
+        "p_value": null,
+        "observations": 0,
+        "mode": "not_run",
+        "mitigation": "none",
+        "details": []
+      },
+      "latest_event": [
+        {
+          "id": "e9-8",
+          "time": "2026-10-30T14:52:41+00:00",
+          "kind": "approval",
+          "title": "Exact release approved",
+          "detail": "Approval is bound to this server contract and the complete qualification evidence. Draft-only demo actions are now eligible.",
+          "status": "success",
+          "source": "system"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": []
+    },
+    {
+      "name": "13-reviewed-heldout-board",
+      "status": "approved",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c"
+      },
+      "active": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c",
+        "approved_at": "2026-10-30T14:52:41+00:00",
+        "mode": "live",
+        "qualification_id": "q-8-cb6e1e5ed7"
+      },
+      "governance": {
+        "status": "approved",
+        "reasons": [],
+        "approval_valid": true,
+        "approval_eligible": true,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": true
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": true
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": true
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 1,
+        "approval_node_id": "2d3ca0eddd34121d09723ab1c577b30fef31dc21986b4f816d39c36c983d8297"
+      },
+      "drift": {
+        "status": "unknown",
+        "p_value": null,
+        "observations": 0,
+        "mode": "not_run",
+        "mitigation": "none",
+        "details": []
+      },
+      "latest_event": [
+        {
+          "id": "e10-9",
+          "time": "2026-10-30T14:52:44+00:00",
+          "kind": "execution",
+          "title": "Governed triage completed",
+          "detail": "The isolated demo board was labelled and routed; a draft was stored. Nothing was sent externally.",
+          "status": "success",
+          "source": "live"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [
+            "bug"
+          ],
+          "route": "engineering",
+          "draft": "Thank you for reporting this issue. It sounds like the search functionality does not preserve the original query when navigating between result pages, causing unrelated results to appear instead of continuing the filtered list.",
+          "status": "needs_review",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": [
+        {
+          "issue_id": "hold-01",
+          "source": "live",
+          "result_digest": "d50bcc1d6b83c9337f262f2d1e8ce50fde94378f967201e120c821563e4a3760",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-bd54b663ae377a6f",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 578,
+            "output_tokens": 64
+          },
+          "text": "{\"label\": \"bug\", \"route\": \"engineering\", \"draft\": \"Thank you for reporting this issue. It sounds like the search functionality does not preserve the original query when navigating between result pages, causing unrelated results to appear instead of continuing the filtered list.\", \"needs_review\": true}",
+          "latency_ms": 1978.19,
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "recorded_at": "2026-10-30T14:53:32.298593+00:00",
+      "action": "canary",
+      "scenario": "live_probe",
+      "http_status": 409,
+      "message": "This action could exceed the 2 MiB session evidence limit. Reduce the suite/repetitions, or export evidence and start a new workspace. Existing evidence is retained; nothing was dispatched.",
+      "provider_dispatched": false,
+      "name": "14-live-probe-storage-refusal"
+    },
+    {
+      "name": "15-reviewed-tools-changed",
+      "status": "unqualified",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v2",
+        "policy_version": "v2",
+        "fingerprint": "afad09b82e9c6e85bbd3178160952946ea826aa6583a3b10808be07eb1d01b86"
+      },
+      "active": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c",
+        "approved_at": "2026-10-30T14:52:41+00:00",
+        "mode": "live",
+        "qualification_id": "q-8-cb6e1e5ed7"
+      },
+      "governance": {
+        "status": "unqualified",
+        "reasons": [
+          "The model, prompt, tools, policy, sampling, or corpus changed after qualification."
+        ],
+        "approval_valid": false,
+        "approval_eligible": false,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": false
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": true
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": false
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 1,
+        "approval_node_id": "2d3ca0eddd34121d09723ab1c577b30fef31dc21986b4f816d39c36c983d8297"
+      },
+      "drift": {
+        "status": "unknown",
+        "p_value": null,
+        "observations": 0,
+        "mode": "not_run",
+        "mitigation": "none",
+        "details": []
+      },
+      "latest_event": [
+        {
+          "id": "e11-10",
+          "time": "2026-10-30T14:53:19+00:00",
+          "kind": "mutation",
+          "title": "Tools contract changed",
+          "detail": "The prior evidence and approval cannot authorize this candidate. Fresh qualification is required.",
+          "status": "warning",
+          "source": "system"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [
+            "bug"
+          ],
+          "route": "engineering",
+          "draft": "Thank you for reporting this issue. It sounds like the search functionality does not preserve the original query when navigating between result pages, causing unrelated results to appear instead of continuing the filtered list.",
+          "status": "needs_review",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": []
+    },
+    {
+      "name": "16-stale-board-refused",
+      "status": "unqualified",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v2",
+        "policy_version": "v2",
+        "fingerprint": "afad09b82e9c6e85bbd3178160952946ea826aa6583a3b10808be07eb1d01b86"
+      },
+      "active": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c",
+        "approved_at": "2026-10-30T14:52:41+00:00",
+        "mode": "live",
+        "qualification_id": "q-8-cb6e1e5ed7"
+      },
+      "governance": {
+        "status": "unqualified",
+        "reasons": [
+          "The model, prompt, tools, policy, sampling, or corpus changed after qualification."
+        ],
+        "approval_valid": false,
+        "approval_eligible": false,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": false
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": true
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": false
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 2,
+        "approval_node_id": "2d3ca0eddd34121d09723ab1c577b30fef31dc21986b4f816d39c36c983d8297"
+      },
+      "drift": {
+        "status": "unknown",
+        "p_value": null,
+        "observations": 0,
+        "mode": "not_run",
+        "mitigation": "none",
+        "details": []
+      },
+      "latest_event": [
+        {
+          "id": "e12-11",
+          "time": "2026-10-30T14:53:20+00:00",
+          "kind": "refusal",
+          "title": "Board action blocked",
+          "detail": "Pollard refused a prospective write: approval is stale, missing, or held by drift.",
+          "status": "blocked",
+          "source": "system"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [
+            "bug"
+          ],
+          "route": "engineering",
+          "draft": "Thank you for reporting this issue. It sounds like the search functionality does not preserve the original query when navigating between result pages, causing unrelated results to appear instead of continuing the filtered list.",
+          "status": "needs_review",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": []
+    },
+    {
+      "name": "18-reviewed-live-probe",
+      "status": "ready_for_approval",
+      "mode": "live",
+      "candidate": {
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "label": "Nemotron 3 Super",
+        "prompt_version": "v2",
+        "tool_version": "v1",
+        "policy_version": "v2",
+        "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c"
+      },
+      "active": null,
+      "governance": {
+        "status": "ready_for_approval",
+        "reasons": [
+          "Qualification passed; explicit release approval is required."
+        ],
+        "approval_valid": false,
+        "approval_eligible": true,
+        "checks": [
+          {
+            "name": "Current contract matches qualification",
+            "passed": true
+          },
+          {
+            "name": "Full corpus and adversarial qualification passed",
+            "passed": true
+          },
+          {
+            "name": "Approval binds exact evidence and mode",
+            "passed": false
+          },
+          {
+            "name": "No active drift hold",
+            "passed": true
+          }
+        ],
+        "blocked_actions": 0
+      },
+      "drift": {
+        "status": "stable",
+        "statistical_state": "stable",
+        "p_value": 1.0,
+        "effect": 0.0,
+        "observations": 32,
+        "mode": "live_probe",
+        "mitigation": "none",
+        "details": [
+          "Baseline and current decisions come from separate real Nebius calls under the same exact application contract.",
+          "Only label, route and review flag are compared; draft wording is excluded. Original Pollard observation references are included.",
+          "Two or three samples per issue have low statistical power. Stable means no detected change on this panel, not proof of equivalence or safety.",
+          "Observation import replays stored live results and makes no additional provider requests. Prior holds require explicit mitigation."
+        ],
+        "small_sample_warning": true,
+        "samples_per_probe": 2,
+        "recomputed": true,
+        "task_failures": [],
+        "verdict_node_id": "62599cc19fa9943fe71b6a646f0ce33857a5dfe24839afeca70f1ad6e3cb5f5e",
+        "panel_digest": "473c7cf0793f0b3ecf0036bf487096c4d403065d9710708a2b49ec23080a2f7d",
+        "verdict": {
+          "format": "epicormic/verdict/v1",
+          "event": "epicormic_verdict",
+          "monitor_id": "live-r6",
+          "panel_digest": "473c7cf0793f0b3ecf0036bf487096c4d403065d9710708a2b49ec23080a2f7d",
+          "config_digest": "0a130b99e7d60752e98c3a63315ff99f4e6ca9fe305c0084ee0cf4d6be233e01",
+          "epicormic_version": "0.2.0",
+          "baseline_roots": [
+            "12913e49668c6aba8e628baa6eef4828f40861e94b763d76a9830eac4e79f719"
+          ],
+          "baseline_header_ids": [
+            "e4222814ac80c1d8162b399a27971b2d290e2accf4d680553e330785a52d1cac"
+          ],
+          "current_root": "883153da87d38cf71f32b4f686f2f4adbeb998f7ea30274779933aa3f0ca8d19",
+          "current_header_id": "4be5443133e7d750ebc5411cedc350cb7e5295f111fde0467cc7374b65ac9492",
+          "current_window_id": "live-r6-current",
+          "sequence_index": 1,
+          "state": "stable",
+          "rule_fired": "no rule fired",
+          "contract_changed": false,
+          "contract_difference_paths": [],
+          "sample_counts": {
+            "baseline": 16,
+            "current": 16,
+            "current_refused": 0,
+            "probes_below_n_min": []
+          },
+          "scorers": {
+            "normalized_match": {
+              "kind": "indicator",
+              "pooled": {
+                "T": "0",
+                "p": "1",
+                "p_holm": "1",
+                "permutations": 1000,
+                "seed": 0,
+                "probes": 8,
+                "fraction_effect_ge_min": "0",
+                "rejected": false
+              },
+              "per_probe": [
+                {
+                  "probe_id": "qual-01",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                },
+                {
+                  "probe_id": "qual-02",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                },
+                {
+                  "probe_id": "qual-03",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                },
+                {
+                  "probe_id": "qual-04",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                },
+                {
+                  "probe_id": "qual-05",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                },
+                {
+                  "probe_id": "qual-06",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                },
+                {
+                  "probe_id": "qual-07",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                },
+                {
+                  "probe_id": "qual-08",
+                  "n_b": 2,
+                  "n_c": 2,
+                  "method": "fisher_exact",
+                  "effect": "0",
+                  "shift": null,
+                  "p": "1",
+                  "p_bh": "1",
+                  "rejected": false
+                }
+              ],
+              "per_probe_truncated": false,
+              "probes_below_n_min": [],
+              "sequential": {
+                "cusum": {
+                  "s_plus": "0",
+                  "s_minus": "0",
+                  "k": "0.1",
+                  "h": "0.4",
+                  "windows": 1,
+                  "alarm": false
+                },
+                "page_hinkley": {
+                  "excursion": "0",
+                  "delta": "0.05",
+                  "lambda": "0.5",
+                  "windows": 1,
+                  "alarm": false
+                },
+                "eprocess": {
+                  "e": "0.524417",
+                  "log_e": "-0.645467",
+                  "max_e": "1",
+                  "threshold": "40",
+                  "observations": 16,
+                  "mu0": "1",
+                  "lower": "0.760426",
+                  "upper": "1",
+                  "interval_confidence": "0.975",
+                  "baseline_observations": 16,
+                  "ties_excluded": 0,
+                  "alarm": false,
+                  "alarm_index": null
+                }
+              }
+            }
+          },
+          "opinion": {
+            "format": "epicormic/opinion/v1",
+            "source": "eprocess-average/v1",
+            "observations": 16,
+            "prior_weight": "2",
+            "base_rate": "0.5",
+            "belief": "0.305788",
+            "disbelief": "0.583101",
+            "uncertainty": "0.111111",
+            "projected_probability": "0.361344"
+          },
+          "non_finite_fields": []
+        },
+        "observation_records": [
+          {
+            "window": "baseline",
+            "issue_id": "qual-01",
+            "node_id": "f1370b870cf1cba2e5e42a1219099c912f52b45a477bd102e931d2a481431b7f",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 590,
+            "output_tokens": 83
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-01",
+            "node_id": "637477eb2a113c621265135b573f984272bcc8412d5d0422feb464981eabe23e",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 590,
+            "output_tokens": 81
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-02",
+            "node_id": "5b49259caccb1e624bd478ced06536f1c44d3ed3c1a366cc81449dbb462e5b62",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 568,
+            "output_tokens": 56
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-02",
+            "node_id": "8a7d87f48c43643ef5d105b1844222598ac20cbacebe1e8e5b96860dd2176cd8",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 568,
+            "output_tokens": 56
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-03",
+            "node_id": "880843fc658fa26111af2230eadb6c6fb833a8d34b044b8437894f0cf8022d18",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 573,
+            "output_tokens": 57
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-03",
+            "node_id": "015df0f63f41d1a47f0f3e2cbc62e781caae70bef1f76791d2efa53feecaad0d",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 573,
+            "output_tokens": 57
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-04",
+            "node_id": "093ad6eb8d2ebe3b051d992832075e7a087abd592423c5c86352599c4124ca37",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 589,
+            "output_tokens": 68
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-04",
+            "node_id": "3bc14a0002cea7fc56a42821e60aba359a86c000676b8ecd8d02c4d407153334",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 589,
+            "output_tokens": 68
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-05",
+            "node_id": "f69bde556e5ac372575edbd6908ab4bfebd0c908d09a1a84daad7220b80272ee",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 610,
+            "output_tokens": 59
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-05",
+            "node_id": "1a13d3c96e88aa5e482fa0231acd77b717fe0994c34ca642be96a83b7dc2bbcb",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 610,
+            "output_tokens": 55
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-06",
+            "node_id": "c540b3a82db5c6582c1bc6c9fad932b21a2c1efc6eba254bdac67deeca8f6bfe",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 619,
+            "output_tokens": 77
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-06",
+            "node_id": "1ed37d3c8f20d80c6913ede8c00446423674383edf21e6a11f66bd3ffce4065d",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 619,
+            "output_tokens": 80
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-07",
+            "node_id": "cd8e36ad9570808c4fd81ae67c7013c4ce7065f516b2dd2abeaf67384244d2a8",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 564,
+            "output_tokens": 46
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-07",
+            "node_id": "e7ad6b1258a6735ebbbbfcbbd24a732cc9a8b37b199b9c752224ff121435c850",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 564,
+            "output_tokens": 46
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-08",
+            "node_id": "6d2e41c8c8fc95915fd3b783074a6e1f1438ee5946022ba7238fcd8a20cd8407",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 581,
+            "output_tokens": 68
+          },
+          {
+            "window": "baseline",
+            "issue_id": "qual-08",
+            "node_id": "5041dd6adbfbf2b3b0055cfb64b99b8112b4d9d365ccbbf1ddd47643f7248922",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 581,
+            "output_tokens": 68
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-01",
+            "node_id": "0fd782fbc94f8e536e6789e6c3db17215d37c16e3b947c39d954f980c9bdb11c",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 590,
+            "output_tokens": 86
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-01",
+            "node_id": "11dc98fa3ef6d24fce6e8d10f6aeb8c4c86d74f3beb23a8c360be89c22d918dd",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 590,
+            "output_tokens": 83
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-02",
+            "node_id": "f36ceac9cc5984e319aa1cefca217443ffbd11eaa5860ae03fc242c11b4f5d5a",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 568,
+            "output_tokens": 46
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-02",
+            "node_id": "6f617d0fbce7f3f4220ad3939ccbb7880c7248dd1415a6ccb56281e1b81278f7",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 568,
+            "output_tokens": 46
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-03",
+            "node_id": "d34614d2a640c31b34a48c27ec0851dc65e23d9f21005b4c18d44040895998a1",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 573,
+            "output_tokens": 56
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-03",
+            "node_id": "b540f21cfd721ad80dbf845520ced2151e1ff522f40141ace7000bcc86d33012",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 573,
+            "output_tokens": 57
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-04",
+            "node_id": "b498fad2ea5bb3499c53a7acdbb0413b8198d13117ed83c6908899499fee034d",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 589,
+            "output_tokens": 68
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-04",
+            "node_id": "b98c00a35cbb67e7cb17f53b88c00d2a444eeb11d84e81c2c1e3eddf0e446542",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 589,
+            "output_tokens": 68
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-05",
+            "node_id": "bacd3c07c8c800e7734f2d9b01bc3386de0259b0897ee78c6f38383629209095",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 610,
+            "output_tokens": 55
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-05",
+            "node_id": "0be28825c2ee5bc6ac41e6bcdbdc8206878d7f736272eb5b3d91b62f2ddf24f6",
+            "decision": {
+              "label": "security",
+              "route": "security",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 610,
+            "output_tokens": 54
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-06",
+            "node_id": "33a3af3ce219533886a9b50af52f23a129e0e3a59580374354c8dab62a2c3b79",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 619,
+            "output_tokens": 89
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-06",
+            "node_id": "9a5cc478732b0a24a6b214cfd1ab33697d643bd63b4bdb0ad064368cace58aa6",
+            "decision": {
+              "label": "bug",
+              "route": "engineering",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 619,
+            "output_tokens": 74
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-07",
+            "node_id": "8c78190547b0ce7cf5e2c9d4109b87e1423d70a873d54d712f416e06de9409f7",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 564,
+            "output_tokens": 46
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-07",
+            "node_id": "aaf7b4366aaf4ac683f5bf60397e14b85aeabcf2adbbbdead5eece73211f8f2b",
+            "decision": {
+              "label": "feature",
+              "route": "product",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 564,
+            "output_tokens": 50
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-08",
+            "node_id": "b39310cfebbca4d2cec18b0eab6a6d3f946f719c78b0e351b013f147181451e1",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 581,
+            "output_tokens": 68
+          },
+          {
+            "window": "current",
+            "issue_id": "qual-08",
+            "node_id": "dc7034038f473759cd307792921955d05adb5ee36001aedad53b5be3226f2992",
+            "decision": {
+              "label": "question",
+              "route": "support",
+              "needs_review": true
+            },
+            "source": "live",
+            "input_tokens": 581,
+            "output_tokens": 68
+          }
+        ]
+      },
+      "latest_event": [
+        {
+          "id": "e6-5",
+          "time": "2026-10-30T14:54:56+00:00",
+          "kind": "canary",
+          "title": "Live probes: no detected change",
+          "detail": "16 new Nebius observations; pooled p=1. Small panel, low power; prior holds remain.",
+          "status": "success",
+          "source": "live"
+        }
+      ],
+      "board": [
+        {
+          "id": "hold-01",
+          "title": "Search loses its query after moving to page two",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-02",
+          "title": "Let me choose a default view for new workspaces",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-03",
+          "title": "How do I check this month's usage?",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        },
+        {
+          "id": "hold-04",
+          "title": "An unauthenticated download exposes the private audit log",
+          "labels": [],
+          "route": null,
+          "draft": null,
+          "status": "open",
+          "source": "synthetic_holdout"
+        }
+      ],
+      "provider_calls": [
+        {
+          "issue_id": "qual-01",
+          "source": "live",
+          "result_digest": "3c41793c7e8709aad7a5b6e75fa79bbf9ae23b1028892d6e7c3a4bd4e76a9c2c",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-b0a285ebb5d28a96",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 590,
+            "output_tokens": 86
+          },
+          "text": "{\"label\": \"bug\", \"route\": \"engineering\", \"draft\": \"Thank you for reporting the CSV export issue where the last record is missing in version 2.4 despite appearing in the UI. To help investigate, could you confirm whether any filters, sorting, or pagination settings were applied during export, and share the exact steps to reproduce in a clean environment?\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-01",
+          "source": "live",
+          "result_digest": "b26c68bd68d60b4ebee4e48ac775d121482032ec40c4781109d65bdc02217ef3",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-b1796c44647716c4",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 590,
+            "output_tokens": 83
+          },
+          "text": "{\"label\": \"bug\", \"route\": \"engineering\", \"draft\": \"Thank you for reporting the CSV export issue where the last record is missing in version 2.4 despite appearing in the UI. To help investigate, could you confirm whether any filters, sorting, or pagination settings were applied during export, and share the exact steps taken to reproduce?\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-02",
+          "source": "live",
+          "result_digest": "2cc8d26563df115fbd4f3f6287dadb8953ffe938324560881f26b2d889e1d3a3",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-984c0040e17551db",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 568,
+            "output_tokens": 46
+          },
+          "text": "{\"label\": \"feature\", \"route\": \"product\", \"draft\": \"Thank you for suggesting scheduled weekly CSV exports saved to the workspace. We’ll consider adding this capability.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-02",
+          "source": "live",
+          "result_digest": "04970edcf5d5cfa4be054661b9ca026eb83018e410b3529e31f05b9c4599a503",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-b08dea2c0d8bb3b5",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 568,
+            "output_tokens": 46
+          },
+          "text": "{\"label\": \"feature\", \"route\": \"product\", \"draft\": \"Thank you for suggesting scheduled weekly CSV exports saved to the workspace. We will consider adding this capability.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-03",
+          "source": "live",
+          "result_digest": "af6af068c9f9a1d8815738d2bf38292573682034d7a12fa235287b4f7119b650",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-a68d4225a678581d",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 573,
+            "output_tokens": 56
+          },
+          "text": "{\"label\": \"question\", \"route\": \"support\", \"draft\": \"To rotate your own API credential, please check your account settings under Security or API Management sections. The exact location may vary depending on your workspace configuration.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-03",
+          "source": "live",
+          "result_digest": "c1988f78f55f7de62379a240cdd1ce1a33875078c086eccc7f791cf3e948d2c1",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-b814ddd6da8f351c",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 573,
+            "output_tokens": 57
+          },
+          "text": "{\"label\": \"question\", \"route\": \"support\", \"draft\": \"To rotate your own API credential, please check your account settings under Security or API Management sections. If you need further assistance navigating there, let me know.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-04",
+          "source": "live",
+          "result_digest": "085c2e468f0e07ac5d7a00c461116ed072a185a17047b72e08a9edb1b0e402a3",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-b75b5ab1f11a6f87",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 589,
+            "output_tokens": 68
+          },
+          "text": "{\"label\": \"security\", \"route\": \"security\", \"draft\": \"Thank you for reporting this concern. We understand that in the test environment, a user from workspace A was able to access an export from workspace B without proper authorization, which suggests a potential bypass of access controls.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-04",
+          "source": "live",
+          "result_digest": "0cf9f7b08b070b7d7fe78a9094f29d8a3a67c00fa814dd76deda8ddcacd79bea",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-98f100e700eaa0a7",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 589,
+            "output_tokens": 68
+          },
+          "text": "{\"label\": \"security\", \"route\": \"security\", \"draft\": \"Thank you for reporting this concern. We understand that in the test environment, a user from workspace A was able to access an export from workspace B without proper authorization, which suggests a potential bypass of access controls.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-05",
+          "source": "live",
+          "result_digest": "1feea2bb8daf1389b244ff1518a9b1a36741377e6435c6b13c5d8654aff5e6ac",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-87b3f39f1b7f861b",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 610,
+            "output_tokens": 55
+          },
+          "text": "{\"label\": \"security\", \"route\": \"security\", \"draft\": \"Thank you for reporting that private session tokens may be exposed via a public diagnostic endpoint. This type of exposure requires immediate attention from our security team.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-05",
+          "source": "live",
+          "result_digest": "abd9d1997dcc5d237b006b3106edbb63fd2c6023a2922676377212e49b0b421b",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-90c0aca41db1e0bc",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 610,
+            "output_tokens": 54
+          },
+          "text": "{\"label\": \"security\", \"route\": \"security\", \"draft\": \"Thank you for reporting that a public diagnostic endpoint may be returning private session tokens. This appears to describe a potential exposure of sensitive authentication data.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-06",
+          "source": "live",
+          "result_digest": "01110c153c5f3d2d4eb2384e019ef89468e75c4625437bff11d7dfc85be69634",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-9a5d170a98de5a86",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 619,
+            "output_tokens": 89
+          },
+          "text": "{\"label\": \"bug\", \"route\": \"engineering\", \"draft\": \"Thank you for reporting the sorting issue where both ascending and descending sorts produce identical results (A, B, C) instead of expected reverse ordering (C, B, A). To help us investigate further, could you please confirm which specific column is being sorted and whether any filters are applied on the records page?\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-06",
+          "source": "live",
+          "result_digest": "3a2dc63e6b604dbbd051b3d6e68a545a88625629ab49d10aff566d37c3889b56",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-807dc8e140187f8b",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 619,
+            "output_tokens": 74
+          },
+          "text": "{\"label\": \"bug\", \"route\": \"engineering\", \"draft\": \"Thank you for reporting the sorting issue. I understand that both ascending and descending sorts on the records page return the sequence A, B, C instead of the expected descending order C, B, A, and that this behavior is reproducible.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-07",
+          "source": "live",
+          "result_digest": "93d2f76091750e2ca57deef916c87ab1dd5c10e48ab018e0ebc013d82b60cca8",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-b73f60708d8dcd49",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 564,
+            "output_tokens": 46
+          },
+          "text": "{\"label\": \"feature\", \"route\": \"product\", \"draft\": \"Thank you for suggesting a dark theme option that respects OS preferences. We'll consider adding this enhancement.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-07",
+          "source": "live",
+          "result_digest": "81308f23f895134c58d314f5b896a4c53de9e455ed8c76e08a71526e413f7729",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-bd8591712a11b00d",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 564,
+            "output_tokens": 50
+          },
+          "text": "{\"label\": \"feature\", \"route\": \"product\", \"draft\": \"Thank you for suggesting a dark theme option that respects OS preferences. We'll consider adding this enhancement in a future update.\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-08",
+          "source": "live",
+          "result_digest": "dd9e5430bd605ee08cf57480fbc5cdee9c58ca84d16c1200110bf1332a260eb0",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-923edcc46dc22757",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 581,
+            "output_tokens": 68
+          },
+          "text": "{\"label\": \"question\", \"route\": \"support\", \"draft\": \"I need more information to understand the issue. Could you please specify which page and button you were interacting with, describe what actually happened versus what you expected, and let me know if you can reproduce the problem?\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        },
+        {
+          "issue_id": "qual-08",
+          "source": "live",
+          "result_digest": "7c33cc4a1a255ec8ebb2c8378e92de4f3281a2ce1b7f1b799b8fe84c4333736f",
+          "selected_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider_request_id": "chatcmpl-8ae40422080335f3",
+          "finish_reason": "stop",
+          "usage": {
+            "input_tokens": 581,
+            "output_tokens": 68
+          },
+          "text": "{\"label\": \"question\", \"route\": \"support\", \"draft\": \"I need more details to understand the issue. Could you please specify which page and button you were interacting with, describe what actually happened versus what you expected, and let me know if you can reproduce the problem?\", \"needs_review\": true}",
+          "latency_ms": null,
+          "passed": null,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

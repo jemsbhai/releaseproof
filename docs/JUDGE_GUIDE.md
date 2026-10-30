@@ -5,7 +5,9 @@ ReleaseProof helps a developer decide whether an exact issue-triage agent releas
 - Application: [ReleaseProof demo](https://jemsbhai-releaseproof.hf.space)
 - Source: [jemsbhai/releaseproof](https://github.com/jemsbhai/releaseproof)
 - Track: **Best Apps and Agents**
-- Publication status when this guide was drafted: local fixture verification and public source/MIT-license verification complete; final public-host workflow verification, live Nebius evidence, and public demo video **pending**. Those items must be verified before final submission.
+- Recorded evidence: [actual model calls, failures and workflow decisions](https://jemsbhai-releaseproof.hf.space/assets/observations.html). This read-only page requires no account or inference access. The public video link is awaiting verified upload.
+
+**Availability:** Nebius lists this Super model for serverless retirement on November 9, 2026, without automatic rerouting. No migration was performed. Use the preserved recorded evidence and fixture workflow during later judging; fresh Super calls cannot be promised. [Official notice](https://docs.tokenfactory.nebius.com/model-deprecations-november-2026.md).
 
 ## Reproducible fixture walkthrough
 
@@ -26,7 +28,15 @@ Live inference uses NVIDIA Nemotron through Nebius Token Factory. It is enabled 
 
 For an optional live behavioral comparison, first qualify with **2 repetitions**. The live probe obtains fresh provider observations under that same contract and compares label, route, and human-review decisions with the original recorded calls. Draft wording is excluded. The analysis replays recorded observations without making extra inference requests. Two samples per case have low statistical power: no detected change is not proof of equivalence or safety. Failed/incomplete observations may hold the release independently of the statistical verdict.
 
-Live metrics and video are **pending verification** at guide creation; fixture counts are not substitutes. Authenticated catalog and price checks confirmed the three candidate IDs and rates, but did not run inference. [Recorded rates](EVALUATION.md#verified-catalog-and-price-assumptions) exclude applicable taxes. Token-based cost estimates include qualification and probe overhead, and are not authoritative invoices. Public live access may refuse work once the shared allowance is exhausted or the spending authority is unavailable.
+Actual Lightning, Super and Ultra calls, including every failed run, are preserved in [Evaluation](EVALUATION.md#recorded-live-results--october-30-2026). Original-policy candidates failed the gate. The selected demonstration uses a different **reviewed-drafts policy** under which every draft requires human review. This changes expected review flags and is not autonomous triage success. [Recorded rates](EVALUATION.md#verified-catalog-and-price-assumptions) exclude applicable taxes. Token-based cost estimates include failed calls and qualification/probe overhead and are not authoritative invoices. Public live access may refuse work once the shared allowance is exhausted or the spending authority is unavailable.
+
+### Reproduce the reviewed-drafts candidate
+
+Start with a fresh workspace. Under **Test a contract change**, click **Edit prompt** once (v2) and **Edit policy** once (v2). The policy requires review for every draft; the original policy's failed results remain separate. Select **Nemotron 3 Super**, **Live Nebius**, **Full suite** and **2 repetitions**. Run qualification and inspect every case. The recorded run passed 16/16, but a fresh run may differ; approve only if the current server result passes.
+
+If qualified, click **Approve this candidate**, then process the first board issue. The recorded held-out action produced a `bug`/`engineering` draft marked for human review; no message was sent. A fresh live probe compares repeated observations under the same contract. The archived probe used 16 new calls against 16 baseline observations and found no detected change (p = 1.0); this small panel is not a stability guarantee. To inspect stale-approval refusal, choose **Edit tools**, then **Try governed action**. The previous draft remains and the next issue is unchanged. The server must refuse the changed contract.
+
+The session evidence limit can refuse a large follow-up suite/probe before dispatch. The evaluation retained two such refusals and exported prior evidence, then used a fresh workspace with the same shared spending authority. A fresh workspace does not reset the global budget. Keep saved observations separate from any new reproduction and use the recorded report if live inference is unavailable.
 
 ## Boundaries and inspection
 

@@ -1,50 +1,70 @@
-# Devpost submission draft
+# Devpost submission copy
 
-Status: working draft. Replace the verification fields below with observed evidence before publication. Do not submit invented metrics or missing links.
+Project name: **ReleaseProof**
+Tagline: **Know which agent release is allowed to act—and why.**
+Track: **Best Apps and Agents**
 
-**Project name:** ReleaseProof  
-**Tagline:** Know which agent release is allowed to act—and why.  
-**Track:** Best Apps and Agents
+The story below is ready to paste. Add only the verified public video URL in the form links; never submit the pending-link note.
 
 ## Inspiration
 
 An agent can pass a test and still be running a different prompt, tool contract, or policy when it takes its next action. Switching models adds another decision: does the new configuration perform the actual workflow well enough, and what will qualification and monitoring cost?
 
-We built ReleaseProof for developers making that release decision. Our own work on Pollard, Hashrope, and Epicormic supplied the foundations, but the project focuses them on one useful workflow: an issue-triage agent.
+I built ReleaseProof for that release decision. My existing work on Pollard, Hashrope, and Epicormic supplied the foundations. ReleaseProof brings them together in a new, runnable issue-triage application with a new interface and synthetic workload.
 
 ## What it does
 
-ReleaseProof tests a candidate against a small, clearly labelled synthetic workload, records exact configuration and evidence versions, and makes promotion an explicit decision. An approved agent can label, route, and draft responses on an isolated issue board. The server refuses stale approval after a contract change.
+ReleaseProof qualifies a candidate against eight public synthetic cases, records its exact model/prompt/tool/policy/evidence contract, and makes promotion explicit. An approved candidate can label, route, and save a draft response on an isolated four-issue demo board. The server checks approval again before each board action and refuses stale approval after the contract changes.
 
-Smart budgeting reserves a worst-case call allowance before dispatch, reconciles observed usage, and protects validation/recovery capacity. Governance is enforced at the server before an action. Repeated behavioral probes can hold future actions, while mitigation requires appropriate current evidence rather than automatically reviving an old approval.
+Its budget controller reserves worst-case call cost before dispatch, reconciles observed usage, and protects validation/recovery capacity. A shared durable ledger covers local and public instances. Pollard enforces execution policy; Hashrope preserves versioned content; Epicormic compares repeated behavioral observations and can hold future actions. A hold never claims to undo an action already completed.
 
-## How we built it
+## How I built it
 
-NVIDIA Nemotron performs live triage through Nebius Token Factory's inference API. A compact Python/FastAPI application serves a buildless browser interface and stores session state. Pollard provides execution controls, Hashrope preserves exact content versions, and Epicormic supplies behavioral probes. Deterministic task checks assess labels, routing, review requirements, and schema; model self-evaluation is not our source of truth.
+A compact Python/FastAPI server serves a buildless JavaScript interface and persists session state in SQLite. Live inference uses NVIDIA open models through Nebius Token Factory's OpenAI-compatible chat-completions endpoint. Model weights stay remote; the project needs no GPU or local model download. Firestore provides the shared spending authority, and a free CPU Hugging Face Docker Space hosts the app.
 
-The runnable fixture mode, live observations, replay, and controlled injected-drift demonstrations are labelled separately. A live call is required to demonstrate the Nebius integration; offline fixtures alone do not establish it.
+Deterministic checks assess labels, routes, human-review requirements and output schema. Full-suite qualification is required: a four-case smoke test cannot authorize promotion. Canonical SHA-256 fingerprints bind approvals to the tested contract; Hashrope versions retain the underlying content. The UI distinguishes live calls, synthetic fixtures, recorded observations and injected faults.
 
-## What we learned and limitations
+## What actually happened
 
-Behavioral consistency is different from correctness. An unchanged configuration can be wrong, and a changed configuration needs evidence before it acts. The included public synthetic cases are a small demonstration, not a general safety certification. A hold affects future work; it cannot undo an action already completed.
+The gate refused real model outputs that looked plausible but violated the workflow. Under prompt v1, Lightning passed 10 of 16 checks and Super 11 of 16 in the equal-panel comparison. Under the revised v2 prompt, Lightning passed 13 of 16 and Super 14 of 16. Neither candidate met the full-pass threshold, and neither result was silently repaired or promoted. Separate one-repetition Lightning pilots and every failure are retained.
 
-The project uses preexisting libraries but introduces a new workflow, dataset, application, and interface during the hackathon. See `docs/NEW_WORK.md` for the precise disclosure.
+The failures were useful: invalid routing, missing review for forged authority, and unnecessary review for a benign credential question. Some fluent drafts also invented product details. That last problem is outside our current deterministic checks, and the evidence report says so. A separate Ultra diagnostic also failed, at 13/16.
 
-## Verified results to fill before publication
+I then tested one explicitly different policy: every draft requires human review. Super with prompt v2 and this reviewed-drafts policy passed 16/16. Label and route checks remained unchanged; the expected review flag became true for every case. This is a more supervised workflow, not autonomous-triage success or a repaired original score.
 
-- Final source commit and public repository: **pending**.
-- Working public demo/test build and judge instructions: **pending**.
-- Public YouTube video, duration below three minutes: **pending**.
-- Exact live NVIDIA model and Nebius endpoint exercised: **pending live verification**.
-- Evaluation count, repetitions, outcomes, errors, token usage, and estimated cost including qualification overhead: **pending actual evidence export**.
-- Dependency versions and test result: **pending final verification**.
+After explicit approval, a fresh held-out call saved a draft on the local board. Changing the tools contract invalidated approval; the next action was refused without changing the board or making a provider call. A fresh qualification under the same reviewed-drafts contract again passed 16/16. Its live probe compared 16 new calls with 16 recorded baseline observations and found no detected behavioral change (p = 1.0). With only two samples per issue, that is not a stability guarantee. Two earlier storage-headroom refusals before dispatch are also preserved.
 
-## Required product feedback — record actual experience
+The complete archived local evaluation contains 145 unique provider calls and 81,949 tokens at $0.031828 estimated token cost, including pilots, all failures, the diagnostic, qualification replication, board action and fresh probe calls. Independent browser demonstrations are recorded separately. This is a tiny public development panel, not a general model benchmark; token-cost estimates are not invoices.
 
-For each tool/model actually used, state its role, time to first successful call, one concrete strength, one reproducible rough edge or limitation, and whether we would use it again. Include the model identifier, relevant request settings, and sanitized error details where helpful. Do not describe onboarding or performance that has not been observed.
+The recorded-evidence page is available without credentials and makes no new inference calls. The labelled fixture mode demonstrates the complete approval, board action, stale-approval refusal, and controlled injected-drift workflow even when a live candidate fails qualification or live access is unavailable.
 
-**Nebius Token Factory:** pending actual onboarding/inference experience.  
-**NVIDIA Nemotron:** pending actual task outcomes and latency observations.  
-**Nebius AI Cloud:** mark not used unless it is used in the final deployment.
+## Product feedback
 
-**Built With:** Python, FastAPI, JavaScript, Nebius Token Factory, NVIDIA Nemotron, Pollard, Hashrope, Epicormic, SQLite. Remove or correct any item that differs from the final verified build.
+Nebius Token Factory accepted the declared JSON-output requests, disabled-thinking setting, zero temperature and bounded output tokens in our recorded calls. Its hosted endpoint let a small CPU app exercise NVIDIA models without downloading weights. Returned usage and request identifiers helped us preserve auditable observations and estimate costs. These successful requests do not imply successful task decisions.
+
+The NVIDIA models produced useful structured triage responses, but our small adversarial panel exposed review-flag and policy-following failures. We would value stronger, documented structured-policy examples and revision-aware behavior information. Prompt v2 improved the measured counts, but its declared prompt change cannot be described as silent provider drift or attributed solely to the model.
+
+The entrant rates Nebius recommendation 6/10 and the experience versus Ollama and Lambda 7/10. These are personal ratings, not a measured cross-provider benchmark. Nebius AI Cloud and Tavily were not used.
+
+## What I learned and what comes next
+
+Behavioral consistency and correctness are different. An unchanged configuration can be wrong; a changed configuration needs current evidence before it acts. Small repeated probes have low statistical power and cannot establish general safety or the cause of a difference.
+
+Next steps are a larger independently authored evaluation set, stronger draft-factuality checks, and better evidence for workflow-specific policy decisions. The current board uses known-answer synthetic cases and does not establish correctness on arbitrary real issues. All responses remain drafts; nothing is sent to a real customer or issue tracker.
+
+## Existing foundations and new work
+
+Pollard 1.6.2, Hashrope 0.2.2 and Epicormic 0.2.0 are my preexisting libraries, used as actual dependencies. New hackathon work includes ReleaseProof's server and provider integration, qualification/promotion workflow, budget ledger integration, contract binding, browser interface, synthetic dataset, board, tests, evidence report and documentation. Earlier Canopy team work inspired the problem; its frontend, benchmark and application code were not copied. Codex assisted with research, implementation, tests and drafts. The source is MIT licensed; dependencies retain their own licenses.
+
+## Form links and technologies
+
+- Public application: https://jemsbhai-releaseproof.hf.space
+- Recorded live evidence: https://jemsbhai-releaseproof.hf.space/assets/observations.html
+- Public source: https://github.com/jemsbhai/releaseproof
+- Judge instructions: https://github.com/jemsbhai/releaseproof/blob/main/docs/JUDGE_GUIDE.md
+- New-work disclosure: https://github.com/jemsbhai/releaseproof/blob/main/docs/NEW_WORK.md
+- YouTube: pending verified public upload; do not submit this placeholder.
+
+Built With: Python, FastAPI, JavaScript, Nebius Token Factory, NVIDIA Nemotron, Pollard, Hashrope, Epicormic, SQLite, Google Cloud Firestore, Hugging Face.
+
+Exact live model IDs: `nvidia/Nemotron-3_5-Lightning`, `nvidia/nemotron-3-super-120b-a12b`, and `nvidia/Nemotron-3-Ultra-550b-a55b`. The reviewed-drafts candidate is Super. Endpoint: `https://api.tokenfactory.nebius.com/v1/chat/completions`. Declared settings: `temperature=0`, JSON object response format, thinking disabled, `max_tokens=768` under the balanced strategy. No fine-tuning. Latest offline verification: 88 passing tests at source `823e4a6`; offline tests do not measure model quality.

@@ -1,0 +1,10 @@
+{
+  "format": "releaseproof-operator-observation-v1",
+  "recorded_at": "2026-10-30T14:53:32.298593+00:00",
+  "action": "canary",
+  "scenario": "live_probe",
+  "http_status": 409,
+  "message": "This action could exceed the 2 MiB session evidence limit. Reduce the suite/repetitions, or export evidence and start a new workspace. Existing evidence is retained; nothing was dispatched.",
+  "provider_dispatched": false,
+  "resolution": "Preserved existing session and completed tools-mutation stale-board refusal. Fresh same-contract qualification needed to retain full live-probe evidence."
+}

@@ -40,7 +40,7 @@ For a POSIX shell, use `export NAME=value`. The example file `.env.example` docu
 
 Firestore is mandatory for live inference on both local and public hosts. Before enabling live mode, create the default Firestore database and initialize the shared budget once with [the operator script](scripts/initialize_cloud_ledger.py), using the intended allowance and carrying forward any prior spend or unresolved reservations. Give the server's service account access to that database. All instances must share the same authority; creating another ledger is not a budget reset. The runtime reads `RELEASEPROOF_FIRESTORE_PROJECT` and the private `GOOGLE_SERVICE_ACCOUNT_JSON` secret; it does not create or reset the budget. Missing configuration, credentials, initialization, or ledger availability blocks live dispatch. There is no SQLite live opt-in or fallback. Fixture workflows remain usable without Firestore.
 
-The three candidate model IDs and input/output prices were checked against the authenticated Nebius account on October 30, 2026; see [the recorded pricing assumptions](docs/EVALUATION.md#verified-catalog-and-price-assumptions). Catalog visibility is not proof of a successful inference request; live measurements remain pending. Recheck availability and prices before a live run. The UI displays its pricing assumptions, excluding applicable taxes. Spend shown from token usage is an estimate, not the provider's authoritative bill. Ollama or other providers are not substitutes for the hackathon's required Nebius runtime call.
+The three candidate model IDs and input/output prices were checked against the authenticated Nebius account on October 30, 2026; see [the recorded pricing assumptions](docs/EVALUATION.md#verified-catalog-and-price-assumptions). Actual Lightning and Super calls and every failed qualification are preserved in [Evaluation](docs/EVALUATION.md#recorded-live-results--october-30-2026) and the [read-only recorded-evidence report](https://jemsbhai-releaseproof.hf.space/assets/observations.html). Recheck availability and prices before a live run. The UI displays its pricing assumptions, excluding applicable taxes. Spend shown from token usage is an estimate, not the provider's authoritative bill. Ollama or other providers are not substitutes for the hackathon's required Nebius runtime call.
 
 ## Try the workflow
 
@@ -72,7 +72,7 @@ python -m pytest -q
 
 Tests use fixtures and do not spend Nebius credits. Live model evaluation is a separate, explicitly enabled action. The interface exposes `/api/health`, `/api/catalog`, isolated capability-based sessions, and a downloadable evidence packet; see [API contract](docs/CONTRACT.md).
 
-Latest offline verification, October 30, 2026: **87 tests passed**. This does not verify live model quality or provider availability.
+Latest offline verification, October 30, 2026: **88 tests passed** at source commit `823e4a6`. This does not verify live model quality or provider availability.
 
 ## Scope and limitations
 
@@ -88,7 +88,9 @@ Latest offline verification, October 30, 2026: **87 tests passed**. This does no
 
 ## Hackathon submission
 
-Target track: **Best Apps and Agents**. Required runtime: **NVIDIA Nemotron through Nebius Token Factory**. The deployment and video URLs will be added only after they are verified. Judge access must remain available through the official judging period.
+Target track: **Best Apps and Agents**. Required runtime: **NVIDIA Nemotron through Nebius Token Factory**. [Public workbench](https://jemsbhai-releaseproof.hf.space) · [Recorded live observations](https://jemsbhai-releaseproof.hf.space/assets/observations.html). The public video URL will be added after verification. Live access is bounded by the shared allowance and provider availability; the labelled fixture workflow and recorded report remain useful without fresh inference. Export session evidence before leaving because the free host may reset session storage on restart.
+
+Nebius schedules the tested Super serverless model's retirement for **November 9, 2026**, with no automatic rerouting. No replacement model has been evaluated here. Preserve fixture and recorded-evidence access through December 23; fresh Super access is not promised. [Official notice](https://docs.tokenfactory.nebius.com/model-deprecations-november-2026.md).
 
 Pollard, Hashrope, and Epicormic are preexisting libraries. ReleaseProof's application, workload, qualification/promotion flow, interface, and documentation are new work; see [New-work disclosure](docs/NEW_WORK.md). Canopy informed the problem selection; no Canopy team-owned interface or benchmark is included.
 

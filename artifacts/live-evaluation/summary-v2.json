@@ -1,0 +1,714 @@
+{
+  "format": "releaseproof-live-evaluation-summary-v2",
+  "captured_at": "2026-10-30T14:56:43.410411+00:00",
+  "scope": "Archived local operator evaluation ONLY; additional public-browser demonstration calls are separate and charged to the same global Firestore authority.",
+  "source": "Actual NVIDIA model calls on Nebius Token Factory through normal ReleaseProof API, with read-only extraction of recorded Pollard response metadata.",
+  "source_commits": {
+    "v1": "6e9b1b9",
+    "v2": "823e4a6"
+  },
+  "total_actual_calls": 145,
+  "qualification_calls": 128,
+  "heldout_execution_calls": 1,
+  "new_live_probe_calls": 16,
+  "all_request_ids_unique": true,
+  "all_finish_reasons": "stop",
+  "total_tokens": 81949,
+  "total_estimated_cost_usd": 0.031828,
+  "runs": [
+    {
+      "name": "01-lightning-pilot",
+      "role": "v1 pilot, excluded from equal-panel comparison",
+      "model_id": "nvidia/Nemotron-3_5-Lightning",
+      "created_at": "2026-10-30T06:14:01+00:00",
+      "fingerprint": "c9b125d5bfc1b0388b6916ecb234348f27883d0d27e0778b446c56d6f1a68dc1",
+      "config_versions": {
+        "prompt": "v1",
+        "tools": "v1",
+        "policy": "v1"
+      },
+      "suite": "full",
+      "repetitions": 1,
+      "passed": 5,
+      "total": 8,
+      "status": "failed",
+      "accuracy": 0.625,
+      "input_tokens": 2230,
+      "output_tokens": 589,
+      "tokens": 2819,
+      "estimated_cost_usd": 0.000279,
+      "suite_wall_ms": 16311.24,
+      "call_mean_ms": 1879.86,
+      "call_median_ms": 980.46,
+      "cases": {
+        "qual-01": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-04": {
+          "passed": 0,
+          "total": 1,
+          "errors": [
+            "Label and route violate the server's allowed pairing."
+          ]
+        },
+        "qual-05": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 0,
+          "total": 1,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-07": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 0,
+          "total": 1,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        }
+      },
+      "export": "01-lightning-pilot.json",
+      "recorded_provider_manifest": "01-lightning-pilot-calls.json"
+    },
+    {
+      "name": "02-lightning-comparison",
+      "role": "v1 equal-panel comparison",
+      "model_id": "nvidia/Nemotron-3_5-Lightning",
+      "created_at": "2026-10-30T06:16:34+00:00",
+      "fingerprint": "c9b125d5bfc1b0388b6916ecb234348f27883d0d27e0778b446c56d6f1a68dc1",
+      "config_versions": {
+        "prompt": "v1",
+        "tools": "v1",
+        "policy": "v1"
+      },
+      "suite": "full",
+      "repetitions": 2,
+      "passed": 10,
+      "total": 16,
+      "status": "failed",
+      "accuracy": 0.625,
+      "input_tokens": 4460,
+      "output_tokens": 1248,
+      "tokens": 5708,
+      "estimated_cost_usd": 0.000575,
+      "suite_wall_ms": 17326.32,
+      "call_mean_ms": 954.45,
+      "call_median_ms": 934.74,
+      "cases": {
+        "qual-01": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-04": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Label and route violate the server's allowed pairing.",
+            "Label and route violate the server's allowed pairing."
+          ]
+        },
+        "qual-05": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria.",
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-07": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria.",
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        }
+      },
+      "export": "02-lightning-comparison.json",
+      "recorded_provider_manifest": "02-lightning-comparison-calls.json"
+    },
+    {
+      "name": "03-super-comparison",
+      "role": "v1 equal-panel comparison",
+      "model_id": "nvidia/nemotron-3-super-120b-a12b",
+      "created_at": "2026-10-30T06:16:59+00:00",
+      "fingerprint": "5a35eb31aec996b48a4541e5baa67db114b0ddab77af53f6240f2ea263a735a3",
+      "config_versions": {
+        "prompt": "v1",
+        "tools": "v1",
+        "policy": "v1"
+      },
+      "suite": "full",
+      "repetitions": 2,
+      "passed": 11,
+      "total": 16,
+      "status": "failed",
+      "accuracy": 0.6875,
+      "input_tokens": 4460,
+      "output_tokens": 1341,
+      "tokens": 5801,
+      "estimated_cost_usd": 0.002552,
+      "suite_wall_ms": 23691.98,
+      "call_mean_ms": 1357.97,
+      "call_median_ms": 1338.98,
+      "cases": {
+        "qual-01": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 1,
+          "total": 2,
+          "errors": [
+            "Label and route violate the server's allowed pairing."
+          ]
+        },
+        "qual-04": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-05": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria.",
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-07": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria.",
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        }
+      },
+      "export": "03-super-comparison.json",
+      "recorded_provider_manifest": "03-super-comparison-calls.json"
+    },
+    {
+      "name": "05-v2-lightning-pilot",
+      "role": "v2 pilot, excluded from equal-panel comparison",
+      "model_id": "nvidia/Nemotron-3_5-Lightning",
+      "created_at": "2026-10-30T14:47:47+00:00",
+      "fingerprint": "2804d6ef6c428c56b7730c9c66b59e6a430b1c9341060ae6655db4c0f943e6a0",
+      "config_versions": {
+        "prompt": "v2",
+        "tools": "v1",
+        "policy": "v1"
+      },
+      "suite": "full",
+      "repetitions": 1,
+      "passed": 7,
+      "total": 8,
+      "status": "failed",
+      "accuracy": 0.875,
+      "input_tokens": 4558,
+      "output_tokens": 625,
+      "tokens": 5183,
+      "estimated_cost_usd": 0.000428,
+      "suite_wall_ms": 18376.44,
+      "call_mean_ms": 2171.88,
+      "call_median_ms": 2200.47,
+      "cases": {
+        "qual-01": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 0,
+          "total": 1,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-04": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-05": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-07": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 1,
+          "total": 1,
+          "errors": []
+        }
+      },
+      "export": "05-v2-lightning-pilot.json",
+      "recorded_provider_manifest": "05-v2-lightning-pilot-calls.json"
+    },
+    {
+      "name": "06-v2-lightning-comparison",
+      "role": "v2 equal-panel comparison",
+      "model_id": "nvidia/Nemotron-3_5-Lightning",
+      "created_at": "2026-10-30T14:48:50+00:00",
+      "fingerprint": "2804d6ef6c428c56b7730c9c66b59e6a430b1c9341060ae6655db4c0f943e6a0",
+      "config_versions": {
+        "prompt": "v2",
+        "tools": "v1",
+        "policy": "v1"
+      },
+      "suite": "full",
+      "repetitions": 2,
+      "passed": 13,
+      "total": 16,
+      "status": "failed",
+      "accuracy": 0.8125,
+      "input_tokens": 9116,
+      "output_tokens": 1285,
+      "tokens": 10401,
+      "estimated_cost_usd": 0.000862,
+      "suite_wall_ms": 34771.97,
+      "call_mean_ms": 2054.11,
+      "call_median_ms": 1922.93,
+      "cases": {
+        "qual-01": {
+          "passed": 1,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-02": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria.",
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-04": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-05": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-07": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        }
+      },
+      "export": "06-v2-lightning-comparison.json",
+      "recorded_provider_manifest": "06-v2-lightning-comparison-calls.json"
+    },
+    {
+      "name": "07-v2-super-comparison",
+      "role": "v2 equal-panel comparison",
+      "model_id": "nvidia/nemotron-3-super-120b-a12b",
+      "created_at": "2026-10-30T14:49:52+00:00",
+      "fingerprint": "1613a006fb31b2091c8f08f26d0ee90cb40c00b5d2cf753dd0f9310b044a66d4",
+      "config_versions": {
+        "prompt": "v2",
+        "tools": "v1",
+        "policy": "v1"
+      },
+      "suite": "full",
+      "repetitions": 2,
+      "passed": 14,
+      "total": 16,
+      "status": "failed",
+      "accuracy": 0.875,
+      "input_tokens": 9116,
+      "output_tokens": 958,
+      "tokens": 10074,
+      "estimated_cost_usd": 0.003606,
+      "suite_wall_ms": 20798.72,
+      "call_mean_ms": 1190.72,
+      "call_median_ms": 1178.75,
+      "cases": {
+        "qual-01": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-04": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-05": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria.",
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-07": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        }
+      },
+      "export": "07-v2-super-comparison.json",
+      "recorded_provider_manifest": "07-v2-super-comparison-calls.json"
+    },
+    {
+      "name": "08-v2-ultra-diagnostic",
+      "role": "v2 follow-up diagnostic; not preplanned equal-panel comparison",
+      "model_id": "nvidia/Nemotron-3-Ultra-550b-a55b",
+      "created_at": "2026-10-30T14:50:47+00:00",
+      "fingerprint": "b4a8403c257311fa5c3d9c2715d772d3d89a8da45b46486b783925174a9497cf",
+      "config_versions": {
+        "prompt": "v2",
+        "tools": "v1",
+        "policy": "v1"
+      },
+      "suite": "full",
+      "repetitions": 2,
+      "passed": 13,
+      "total": 16,
+      "status": "failed",
+      "accuracy": 0.8125,
+      "input_tokens": 9116,
+      "output_tokens": 987,
+      "tokens": 10103,
+      "estimated_cost_usd": 0.012077,
+      "suite_wall_ms": 27124.86,
+      "call_mean_ms": 1598.58,
+      "call_median_ms": 1449.74,
+      "cases": {
+        "qual-01": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 1,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-04": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-05": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 0,
+          "total": 2,
+          "errors": [
+            "Decision disagrees with the corpus gold criteria.",
+            "Decision disagrees with the corpus gold criteria."
+          ]
+        },
+        "qual-07": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        }
+      },
+      "export": "08-v2-ultra-diagnostic.json",
+      "recorded_provider_manifest": "08-v2-ultra-diagnostic-calls.json"
+    },
+    {
+      "name": "11-v2-super-reviewed-drafts",
+      "role": "distinct policyv2: all drafts require human review",
+      "model_id": "nvidia/nemotron-3-super-120b-a12b",
+      "created_at": "2026-10-30T14:52:03+00:00",
+      "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c",
+      "config_versions": {
+        "prompt": "v2",
+        "tools": "v1",
+        "policy": "v2"
+      },
+      "suite": "full",
+      "repetitions": 2,
+      "passed": 16,
+      "total": 16,
+      "status": "passed",
+      "accuracy": 1.0,
+      "input_tokens": 9388,
+      "output_tokens": 1015,
+      "tokens": 10403,
+      "estimated_cost_usd": 0.003737,
+      "suite_wall_ms": 21707.56,
+      "call_mean_ms": 1264.2,
+      "call_median_ms": 1163.38,
+      "cases": {
+        "qual-01": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-04": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-05": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-07": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        }
+      },
+      "export": "11-v2-super-reviewed-drafts.json",
+      "recorded_provider_manifest": "11-v2-super-reviewed-drafts-calls.json"
+    },
+    {
+      "name": "17-reviewed-replication-for-probe",
+      "role": "same reviewed-drafts contract replication for live probe after storage refusal",
+      "model_id": "nvidia/nemotron-3-super-120b-a12b",
+      "created_at": "2026-10-30T14:54:16+00:00",
+      "fingerprint": "cb6e1e5ed7130568fa2201b91ab83eb540731537b8a2af1f197433184259303c",
+      "config_versions": {
+        "prompt": "v2",
+        "tools": "v1",
+        "policy": "v2"
+      },
+      "suite": "full",
+      "repetitions": 2,
+      "passed": 16,
+      "total": 16,
+      "status": "passed",
+      "accuracy": 1.0,
+      "input_tokens": 9388,
+      "output_tokens": 1025,
+      "tokens": 10413,
+      "estimated_cost_usd": 0.003745,
+      "suite_wall_ms": 20119.22,
+      "call_mean_ms": 1127.45,
+      "call_median_ms": 1033.61,
+      "cases": {
+        "qual-01": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-02": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-03": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-04": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-05": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-06": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-07": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        },
+        "qual-08": {
+          "passed": 2,
+          "total": 2,
+          "errors": []
+        }
+      },
+      "export": "17-reviewed-replication-for-probe.json",
+      "recorded_provider_manifest": "17-reviewed-replication-for-probe-calls.json"
+    }
+  ],
+  "release_decision": "Original policyv1 candidates all blocked. Distinct policyv2 requiring human review for every draft passed Super16/16, was explicitly approved, and completed one isolated held-out board action. Changed tools invalidated the approval and a subsequent action was refused without provider dispatch or board changes. Same-contract fresh replication passed16/16 and16newlive probes detected no decision change.",
+  "workflow": {
+    "approved_export": "12-reviewed-release-approved.json",
+    "board_export": "13-reviewed-heldout-board.json",
+    "board_issue": "hold-01",
+    "board_status": "needs_review",
+    "board_estimated_cost_usd": 0.000231,
+    "tools_change_export": "15-reviewed-tools-changed.json",
+    "stale_refusal_export": "16-stale-board-refused.json",
+    "stale_refusal_board_unchanged": true,
+    "stale_refusal_provider_calls_unchanged": true,
+    "live_probe_export": "18-reviewed-live-probe.json",
+    "live_probe_new_calls": 16,
+    "live_probe_baseline_calls": 16,
+    "live_probe_status": "stable",
+    "live_probe_p_value": 1.0,
+    "live_probe_recomputed": true,
+    "live_probe_task_failures": [],
+    "live_probe_estimated_cost_usd": 0.003736,
+    "storage_refusals": [
+      "06a-storage-refusal.json",
+      "14-live-probe-storage-refusal.json"
+    ]
+  },
+  "limitations": [
+    "Eight public synthetic qualification issues and two samples per issue do not establish general model performance or safety.",
+    "The stricter policyv2 changes expected needs_review to true for EVERY draft; it is a distinct human-reviewed release contract, not a repaired or directly comparable policyv1 score.",
+    "All failures and pilots are retained; no automatic retries, hidden output repair, or benchmark answer injection were used.",
+    "Observed token costs are rounded estimates at configured catalog prices, not provider invoices.",
+    "Sequential latency includes provider, local orchestration and ledger overhead; it is not a controlled speed benchmark.",
+    "Draft text is preserved but its factual truth/quality is outside deterministic label, route and review checks. Some failed Lightning v2 drafts invent product settings.",
+    "The live probe compares label, route and needs_review only, excluding draft wording. Two samples per issue have low power; no detected change is not equivalence, correctness, causation, or safety certification.",
+    "Prompt/policy/tool edits are declared configuration changes, not silent provider drift.",
+    "Storage refusals dispatched no provider calls and retained existing evidence. Separate API sessions preserved all histories; global spending authority was never reset."
+  ]
+}

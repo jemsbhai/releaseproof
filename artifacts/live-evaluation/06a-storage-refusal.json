@@ -1,0 +1,13 @@
+{
+  "format": "releaseproof-operator-observation-v1",
+  "recorded_at": "2026-10-30T14:49:51.634419+00:00",
+  "action": "qualify",
+  "model_id": "nvidia/nemotron-3-super-120b-a12b",
+  "mode": "live",
+  "suite": "full",
+  "repetitions": 2,
+  "http_status": 409,
+  "message": "This action could exceed the 2 MiB session evidence limit. Reduce the suite/repetitions, or export evidence and start a new workspace. Existing evidence is retained; nothing was dispatched.",
+  "provider_dispatched": false,
+  "resolution": "Created separate normal API session capped at0.20USD; preserved prior session and exports. Prior evaluation cost0.004696USD; aggregate shared5USD Firestore limit unchanged."
+}

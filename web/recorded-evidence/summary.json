@@ -1,0 +1,18 @@
+{
+  "format": "releaseproof-live-evaluation-summary-v2",
+  "captured_at": "2026-10-30T14:56:43.410411+00:00",
+  "scope": "Archived local operator evaluation ONLY; additional public-browser demonstration calls are separate and charged to the same global Firestore authority.",
+  "source": "Actual NVIDIA model calls on Nebius Token Factory through normal ReleaseProof API, with read-only extraction of recorded Pollard response metadata.",
+  "source_commits": {
+    "v1": "6e9b1b9",
+    "v2": "823e4a6"
+  },
+  "total_actual_calls": 145,
+  "qualification_calls": 128,
+  "heldout_execution_calls": 1,
+  "new_live_probe_calls": 16,
+  "all_request_ids_unique": true,
+  "all_finish_reasons": "stop",
+  "total_tokens": 81949,
+  "total_estimated_cost_usd": 0.031828
+}
