@@ -1,0 +1,32 @@
+[
+  {
+    "id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "created": 1793340262,
+    "object": "model",
+    "owned_by": "system"
+  },
+  {
+    "id": "nvidia/Nemotron-3_5-Lightning",
+    "created": 1786406400,
+    "object": "model",
+    "owned_by": "system"
+  },
+  {
+    "id": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "created": 1780531200,
+    "object": "model",
+    "owned_by": "system"
+  },
+  {
+    "id": "nvidia/nemotron-3-super-120b-a12b",
+    "created": 1773187200,
+    "object": "model",
+    "owned_by": "system"
+  },
+  {
+    "id": "nvidia/Nemotron-3.5-Super-VL",
+    "created": 1791841710,
+    "object": "model",
+    "owned_by": "system"
+  }
+]

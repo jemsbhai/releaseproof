@@ -188,6 +188,27 @@ def test_unexpected_provider_processing_failure_keeps_reservation_and_sanitizes_
     assert state["budget"]["reserved_usd"] == 0
 
 
+@pytest.mark.parametrize("interruption", [KeyboardInterrupt, SystemExit])
+def test_interrupted_dispatch_keeps_full_reservation_without_retry(monkeypatch, interruption):
+    ledger = FakeGlobalLedger()
+    monkeypatch.setattr(engine, "LIVE_BILLING", ledger)
+    dispatched = []
+
+    def interrupted(request):
+        dispatched.append(request)
+        raise interruption("Interrupted after entering the provider dispatch boundary")
+
+    monkeypatch.setattr(engine.provider, "live", interrupted)
+    state = new_state("interrupted-live")
+    with pytest.raises(interruption):
+        perform(state, "qualify", {"mode": "live", "suite": "full"}, live_enabled=True)
+
+    assert len(dispatched) == len(ledger.reservations) == 1
+    assert ledger.reservations[0] > 0
+    assert ledger.settlements == [("1", ledger.reservations[0])]
+    assert state["_budgets"]["live"] == {"spent": ledger.reservations[0], "reserved": 0}
+
+
 def test_live_fallback_never_substitutes_an_approved_fixture(monkeypatch):
     state = approved()
     monkeypatch.setattr(engine, "LIVE_BILLING", FakeGlobalLedger(refuse=True))

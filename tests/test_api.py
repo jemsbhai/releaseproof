@@ -264,6 +264,37 @@ def test_restart_of_interrupted_approved_operation_requires_requalification(tmp_
         assert not attempted["governance"]["approval_valid"]
 
 
+@pytest.mark.parametrize("project_setting", [None, ""])
+def test_live_key_and_enable_flag_require_durable_firestore(tmp_path, monkeypatch, project_setting):
+    monkeypatch.setenv("RELEASEPROOF_LIVE_ENABLED", "1")
+    monkeypatch.setenv("RELEASEPROOF_LIVE_LIMIT_USD", "5")
+    if project_setting is None:
+        monkeypatch.delenv("RELEASEPROOF_FIRESTORE_PROJECT", raising=False)
+    else:
+        monkeypatch.setenv("RELEASEPROOF_FIRESTORE_PROJECT", project_setting)
+
+    dispatched = []
+    monkeypatch.setattr(provider, "live", lambda request: dispatched.append(request))
+    # A replacement ephemeral database must not grant a new live allowance either.
+    for database in ("first.sqlite3", "replacement.sqlite3"):
+        app = create_app(tmp_path / database)
+        with TestClient(app) as client:
+            health = client.get("/api/health").json()
+            assert health["live_available"] is False
+            assert health["spending_authority_available"] is False
+            assert "requires the durable Firestore" in health["storage"]
+            assert engine.LIVE_BILLING is None
+            sid = create(client)["session_id"]
+            response = client.post(f"/api/sessions/{sid}/actions", json={
+                "action": "qualify", "payload": {"mode": "live", "suite": "quick"}})
+            assert response.status_code == 409
+            assert not client.get(f"/api/sessions/{sid}").json()["busy"]
+            fixture = run(client, sid, "qualify", mode="fixture", suite="quick")
+            assert fixture["qualification"]["status"] == "passed"
+            assert fixture["metrics"]["live_calls"] == 0
+    assert not dispatched
+
+
 def test_configured_remote_authority_never_falls_back_to_local(tmp_path, monkeypatch):
     from releaseproof import server
     from releaseproof.cloud_ledger import FirestoreLedger

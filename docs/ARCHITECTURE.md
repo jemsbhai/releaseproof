@@ -9,7 +9,8 @@ flowchart LR
     Engine --> Versions[Hashrope content versions]
     Engine --> Gate[Pollard execution gate]
     Gate --> Budget[Reserve worst-case cost]
-    Budget --> Model[Nemotron on Nebius Token Factory]
+    Budget --> Ledger[Required shared Firestore authority]
+    Ledger --> Model[Nemotron on Nebius Token Factory]
     Model --> Checks[Deterministic task checks]
     Checks --> Evidence[Qualification evidence]
     Evidence --> Promote[Explicit promotion]
@@ -23,7 +24,7 @@ flowchart LR
 
 ## Release contract
 
-The current model identifier, prompt version, tool version, policy version, and evidence identity form the release contract. Qualification evaluates that contract. Promotion is an explicit server action, and execution validates the current contract again. Changes invalidate old approval rather than silently reusing it.
+The current model identifier, prompt version, tool version, policy version, and evidence identity form the release contract. A canonical SHA-256 fingerprint binds its identity; Hashrope preserves versioned execution evidence and its own fingerprint is noncryptographic. Qualification evaluates that contract. Promotion is an explicit server action, and execution validates the current contract again. Changes invalidate old approval rather than silently reusing it.
 
 Promotion requires the full eight-case qualification corpus. The quick four-case suite is a smoke test only. Request settings use JSON output with thinking disabled and a declared output-token cap; these settings are part of the configuration identity. Prompts and stored completion text are limited to 8 KiB each, and the provider response envelope to 64 KiB, so the API can reserve conservative audit-storage growth before dispatch.
 
@@ -37,7 +38,7 @@ Normal work cannot consume the configured validation/recovery reserve. The workb
 
 Session budgets and the operator's total hosting/inference authorization are separate limits. A new browser session must not reset the operator's allowance. Deployment operators must preserve the global spend ledger and the hosting provider's own limits across restarts.
 
-An optional Firestore ledger provides the durable spending authority for hosts with ephemeral session storage. It stores budget counters and opaque reservation identities, not issue content or provider keys. The runtime requires an existing budget document; missing credentials, initialization, or ledger availability disables live dispatch without replacing it with a new local allowance. Fixture workflows remain available. Remote health checks are cached for 15 seconds; every live reservation still goes through the authority.
+Firestore is the mandatory durable spending authority for every live deployment, including local runs. SQLite stores fixture sessions and application state; it cannot authorize live calls. The Firestore ledger stores budget counters and opaque reservation identities, not issue content or provider keys. The runtime requires a configured project, valid service-account JSON credentials, and an existing budget document. Missing configuration, credentials, initialization, or ledger availability disables live dispatch without replacing it with a new local allowance. There is no SQLite live opt-in. Fixture workflows remain available. Remote health checks are cached for 15 seconds; every live reservation still goes through the authority. All running instances use the same authority so new sessions and host restarts cannot renew the allowance.
 
 ## Drift and mitigation
 

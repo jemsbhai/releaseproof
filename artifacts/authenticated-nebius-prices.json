@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-30T06:04:41.181Z",
+  "source": "https://tokenfactory.nebius.com/organization/prices",
+  "taxes": "Prices exclude applicable taxes",
+  "rows": [
+    "Token Factory\t\nNemotron-3-Ultra-550B-a55B Input\n\t\neu-north1\n\t\n$1.00\n\t\n1M tokens\n\t01 Jun 2026",
+    "Token Factory\t\nNemotron-3-Ultra-550B-a55B Output\n\t\neu-north1\n\t\n$3.00\n\t\n1M tokens\n\t01 Jun 2026",
+    "Token Factory\t\nNemotron-3.5-Lightning Input\n\t\neu-north1\n\t\n$0.06\n\t\n1M tokens\n\t01 Aug 2026",
+    "Token Factory\t\nNemotron-3.5-Lightning Output\n\t\neu-north1\n\t\n$0.24\n\t\n1M tokens\n\t01 Aug 2026",
+    "Token Factory\t\nNvidia-Nemotron-3-Super-120B-A12B Input\n\t\neu-north1\n\t\n$0.3\n\t\n1M tokens\n\t01 Mar 2026",
+    "Token Factory\t\nNvidia-Nemotron-3-Super-120B-A12B Output\n\t\neu-north1\n\t\n$0.9\n\t\n1M tokens\n\t01 Mar 2026"
+  ]
+}

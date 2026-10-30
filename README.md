@@ -21,7 +21,7 @@ python -m uvicorn releaseproof.server:app --host 127.0.0.1 --port 7860
 
 Open <http://127.0.0.1:7860>. The server serves the buildless web UI; no Node installation, model download, or GPU is needed. The main dependencies are Pollard 1.6.2, Epicormic 0.2.0, Hashrope 0.2.2, FastAPI, Uvicorn, and HTTPX. Pytest is used for development verification. The repository's dependency file is authoritative.
 
-The default mode uses clearly labelled synthetic fixtures. **Fixture results are not measurements of Nemotron quality.** A live run requires an NVIDIA model served through Nebius Token Factory.
+The default mode uses clearly labelled synthetic fixtures. **Fixture results are not measurements of Nemotron quality.** SQLite alone supports this fixture workflow. Every live run requires an NVIDIA model served through Nebius Token Factory and a configured, healthy Firestore spending authority.
 
 ## Enable Nebius inference
 
@@ -29,6 +29,8 @@ Use server environment variables, never client-side JavaScript or committed cred
 
 ```powershell
 $env:NEBIUS_API_KEY = "<your private API key>"
+$env:RELEASEPROOF_FIRESTORE_PROJECT = "<your Google Cloud project ID>"
+$env:GOOGLE_SERVICE_ACCOUNT_JSON = Get-Content -Raw "<private service-account JSON path>"
 $env:RELEASEPROOF_LIVE_ENABLED = "1"
 $env:RELEASEPROOF_LIVE_LIMIT_USD = "5"
 python -m uvicorn releaseproof.server:app --host 127.0.0.1 --port 7860
@@ -36,9 +38,9 @@ python -m uvicorn releaseproof.server:app --host 127.0.0.1 --port 7860
 
 For a POSIX shell, use `export NAME=value`. The example file `.env.example` documents the supported settings; setting values there alone does not load them into the process. Keep keys in the host's secret store for a public deployment. `/api/health` reports whether live inference is available without exposing credentials.
 
-An ephemeral host must use the durable Firestore spending authority configured by `RELEASEPROOF_FIRESTORE_PROJECT` and the private `GOOGLE_SERVICE_ACCOUNT_JSON` secret. Initialize that budget separately as an operator; the runtime does not create or reset it. If the configured authority is missing or unavailable, live dispatch stops and fixture mode remains usable. A configured Firestore backend never falls back to a fresh SQLite allowance. Without Firestore, preserve the SQLite database across restarts.
+Firestore is mandatory for live inference on both local and public hosts. Before enabling live mode, create the default Firestore database and initialize the shared budget once with [the operator script](scripts/initialize_cloud_ledger.py), using the intended allowance and carrying forward any prior spend or unresolved reservations. Give the server's service account access to that database. All instances must share the same authority; creating another ledger is not a budget reset. The runtime reads `RELEASEPROOF_FIRESTORE_PROJECT` and the private `GOOGLE_SERVICE_ACCOUNT_JSON` secret; it does not create or reset the budget. Missing configuration, credentials, initialization, or ledger availability blocks live dispatch. There is no SQLite live opt-in or fallback. Fixture workflows remain usable without Firestore.
 
-Model IDs, availability, prices, and credentials must be checked against the current Nebius account before a live run. The UI displays its pricing assumptions. Spend shown from token usage is an estimate, not the provider's authoritative bill. Ollama or other providers are not substitutes for the hackathon's required Nebius runtime call.
+The three candidate model IDs and input/output prices were checked against the authenticated Nebius account on October 30, 2026; see [the recorded pricing assumptions](docs/EVALUATION.md#verified-catalog-and-price-assumptions). Catalog visibility is not proof of a successful inference request; live measurements remain pending. Recheck availability and prices before a live run. The UI displays its pricing assumptions, excluding applicable taxes. Spend shown from token usage is an estimate, not the provider's authoritative bill. Ollama or other providers are not substitutes for the hackathon's required Nebius runtime call.
 
 ## Try the workflow
 
@@ -69,6 +71,8 @@ python -m pytest -q
 ```
 
 Tests use fixtures and do not spend Nebius credits. Live model evaluation is a separate, explicitly enabled action. The interface exposes `/api/health`, `/api/catalog`, isolated capability-based sessions, and a downloadable evidence packet; see [API contract](docs/CONTRACT.md).
+
+Latest offline verification, October 30, 2026: **87 tests passed**. This does not verify live model quality or provider availability.
 
 ## Scope and limitations
 

@@ -5,7 +5,8 @@ Target readiness: **October 30, 2026, noon America/New_York**. Submission deadli
 ## Entrant and originality
 
 - [x] Entrant confirmed adult, US-based solo participation and no excluded conflicts.
-- [ ] Join the hackathon and complete all required Devpost fields before the deadline.
+- [x] Join the hackathon and create the Devpost draft.
+- [ ] Complete and submit all required Devpost fields before the deadline.
 - [ ] Confirm rights/licenses for all source, assets, data, and video material; retain dependency notices.
 - [ ] Include the new-work disclosure: existing foundations may be reused, but significant new work during the submission period must be explained.
 - [ ] Keep the project freely accessible for judges through **December 23, 2026**, including credentials/instructions if needed. English materials are required.
@@ -23,7 +24,7 @@ The official submission period started August 26. Rules list judging December 9â
 - [ ] Description, technology attribution, significant-new-work explanation, and specific feedback on products actually used.
 - [ ] All published measurements backed by evidence; fixtures, replay and injected drift clearly labelled.
 
-See the [submission requirements](https://nebiusglobalaihackathon.devpost.com/). The [FAQ](https://nebiusglobalaihackathon.devpost.com/details/faqs) confirms that an NVIDIA call through Token Factory permits other app components to be hosted elsewhere; another inference provider alone does not qualify. City prizes require actual attendance; do not claim one without it.
+See the [submission requirements](https://nebiusglobalaihackathon.devpost.com/). The [FAQ](https://nebiusglobalaihackathon.devpost.com/details/faqs) confirms that an NVIDIA call through Token Factory permits other app components to be hosted elsewhere; another inference provider alone does not qualify. Official city-award guidance differs between pages. Leave the city field blank unless the entrant's association and applicable eligibility are verified; no city award is claimed here.
 
 ## Publication and preservation
 
@@ -36,4 +37,4 @@ See the [submission requirements](https://nebiusglobalaihackathon.devpost.com/).
 
 ## Pending external access at checklist creation
 
-Nebius onboarding/credits, a successful live NVIDIA-model call, public hosting, public repository publication, YouTube upload, and final Devpost submission require verification. Update this checklist only from observed results. No winning outcome is guaranteed.
+Nebius onboarding/credits, a successful live NVIDIA-model call, final public-host workflow verification, YouTube upload, and final Devpost submission still require verification. The public repository and MIT license have been verified; include the final source commit with the completed submission. Update this checklist only from observed results. No winning outcome is guaranteed.

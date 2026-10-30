@@ -35,8 +35,20 @@ The quick suite is a smoke test only. Promotion requires passing the full eight-
 - Price estimates depend on the displayed input/output token prices and the usage fields returned by the provider. A call must reserve its worst-case allowance before dispatch; reconciliation cannot spend the protected validation/recovery reserve.
 - Model nondeterminism means repeated outcomes can differ. Small samples cannot establish general reliability, model safety, or the cause of a behavioral difference. Passing these cases never proves future correctness.
 
+## Verified catalog and price assumptions
+
+On October 30, 2026, authenticated catalog inspection confirmed all three configured candidates. The account's pricing page showed these rates in USD per million tokens for `eu-north1`, excluding applicable taxes:
+
+| Exact candidate model ID | Input | Output |
+|---|---:|---:|
+| `nvidia/Nemotron-3_5-Lightning` | $0.06 | $0.24 |
+| `nvidia/nemotron-3-super-120b-a12b` | $0.30 | $0.90 |
+| `nvidia/Nemotron-3-Ultra-550b-a55b` | $1.00 | $3.00 |
+
+Evidence: [authenticated catalog snapshot](../artifacts/authenticated-nemotron-catalog.json) and [authenticated price snapshot](../artifacts/authenticated-nebius-prices.json). These checks establish listed availability and pricing assumptions, not successful model execution or measured quality. Live inference measurements are still pending. Recheck the account's current rates before a new evaluation; reported token costs are estimates rather than authoritative bills.
+
 ## What the gate means
 
 A qualification authorizes only its exact tested model, prompt, tools, policy, and evidence contract. Mutating a contract field invalidates the old result. Promotion is a separate explicit action. The server checks the contract again before changing the local demo board.
 
-Epicormic's repeated probes assess behavioral change. They do not prove task correctness or identify why a change occurred. Pollard enforces execution and budget policy. Hashrope preserves exact content versions; its fingerprint is an identity/integrity mechanism, not a truth detector. A hold or fallback only governs future actions and cannot undo completed effects.
+Epicormic's repeated probes assess behavioral change. They do not prove task correctness or identify why a change occurred. Pollard enforces execution and budget policy. Hashrope preserves versioned audit content; its fingerprint is noncryptographic. The application uses canonical SHA-256 fingerprints and seals for contract identity and recorded integrity checks, not to establish the truth of content. A hold or fallback only governs future actions and cannot undo completed effects.

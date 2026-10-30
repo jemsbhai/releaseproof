@@ -346,6 +346,9 @@ def _call(state: dict, store: HashRopeStore, issue: dict, mode: str, *, recovery
                 if LIVE_BILLING is None:
                     raise provider.ProviderFailure("The server's global live-spending authority is not configured.")
                 global_id = LIVE_BILLING.reserve(worst)
+                # Dispatch may be interrupted by BaseException before usage arrives.
+                # Only validated usage can release a committed live reservation.
+                observed_cost = worst
             state["metrics"]["live_calls" if mode == "live" else "fixture_calls"] += 1
             try:
                 if mode == "live":

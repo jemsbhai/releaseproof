@@ -71,12 +71,13 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
 
     def live_available():
         enabled = bool(os.environ.get("NEBIUS_API_KEY")) and os.environ.get("RELEASEPROOF_LIVE_ENABLED") == "1"
-        return bool(enabled and ledger_status()[0])
+        # Ephemeral SQLite must never become a fresh live allowance after restart.
+        return bool(enabled and remote_ledger and ledger_status()[0])
 
     @asynccontextmanager
     async def lifespan(_app):
         store.recover_interrupted()
-        engine.LIVE_BILLING = ledger
+        engine.LIVE_BILLING = ledger if remote_ledger else None
         yield
         executor.shutdown(wait=True, cancel_futures=True)
 
@@ -121,10 +122,10 @@ def create_app(db_path: str | Path | None = None) -> FastAPI:
         return {"status": "ok", "live_available": live_available(), "provider": "Nebius Token Factory",
                 "versions": {name: importlib.metadata.version(name) for name in ("pollard", "hashrope", "epicormic")},
                 "storage_bytes": store.path.stat().st_size, "live_budget": totals,
-                "spending_authority_available": ledger_ready,
+                "spending_authority_available": bool(remote_ledger and ledger_ready),
                 "storage_limits": store.storage_totals(),
                 "storage": ("SQLite session state may be ephemeral; Firestore is the durable spending authority."
-                            if remote_ledger else "SQLite; deployment must preserve runtime storage for live accounting.")}
+                            if remote_ledger else "SQLite stores fixture sessions only. Live inference requires the durable Firestore spending authority.")}
 
     @app.get("/api/catalog")
     def catalog():
