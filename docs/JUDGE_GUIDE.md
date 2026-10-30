@@ -8,6 +8,8 @@ ReleaseProof helps a developer decide whether an exact issue-triage agent releas
 - Recorded evidence: [actual model calls, failures and workflow decisions](https://jemsbhai-releaseproof.hf.space/assets/observations.html). This read-only page requires no account or inference access.
 - Public video: [ReleaseProof walkthrough — 2:24](https://youtu.be/1ZAR8XT7tiA), using actual captured application states with shortened pauses and disclosed synthesized narration.
 
+**Current judge path:** public live inference was disabled after the confirmed submission on October 30, 2026. The fixture walkthrough below, recorded live-evidence report and public video remain available without credentials. The recorded results preserve the actual Nebius calls, including failures; inspecting them does not make new calls. Local live reproduction requires the reader's own configured credentials and shared spending authority.
+
 **Availability:** Nebius lists this Super model for serverless retirement on November 9, 2026, without automatic rerouting. No migration was performed. Use the preserved recorded evidence and fixture workflow during later judging; fresh Super calls cannot be promised. [Official notice](https://docs.tokenfactory.nebius.com/model-deprecations-november-2026.md).
 
 ## Reproducible fixture walkthrough
@@ -25,7 +27,7 @@ No account or API key is needed for the labelled fixture workflow. If a free hos
 
 ## Live evaluation
 
-Live inference uses NVIDIA Nemotron through Nebius Token Factory. It is enabled only when the server has provider credentials, explicit live enablement, and a configured, healthy shared Firestore spending authority. This also applies to local reproduction: SQLite alone supports fixtures, with no live opt-in or fallback. A fixture approval cannot authorize a live call. Select **Live Nebius** when available, run the full suite, and inspect actual observed outcomes before promotion; a failed result must remain a failed result.
+The recorded live evaluation used NVIDIA Nemotron through Nebius Token Factory. Public live dispatch is currently off. For independent local reproduction, live inference requires provider credentials, explicit live enablement, and a configured, healthy shared Firestore spending authority. SQLite alone supports fixtures, with no live opt-in or fallback. A fixture approval cannot authorize a live call. In an enabled local deployment, select **Live Nebius**, run the full suite, and inspect actual observed outcomes before promotion; a failed result must remain a failed result.
 
 For an optional live behavioral comparison, first qualify with **2 repetitions**. The live probe obtains fresh provider observations under that same contract and compares label, route, and human-review decisions with the original recorded calls. Draft wording is excluded. The analysis replays recorded observations without making extra inference requests. Two samples per case have low statistical power: no detected change is not proof of equivalence or safety. Failed/incomplete observations may hold the release independently of the statistical verdict.
 
@@ -33,7 +35,7 @@ Actual Lightning, Super and Ultra calls, including every failed run, are preserv
 
 ### Reproduce the reviewed-drafts candidate
 
-Start with a fresh workspace. Under **Test a contract change**, click **Edit prompt** once (v2) and **Edit policy** once (v2). The policy requires review for every draft; the original policy's failed results remain separate. Select **Nemotron 3 Super**, **Live Nebius**, **Full suite** and **2 repetitions**. Run qualification and inspect every case. The recorded run passed 16/16, but a fresh run may differ; approve only if the current server result passes.
+These reproduction steps require an enabled local deployment and model availability; the public host currently offers the fixture path and recorded evidence. Start with a fresh workspace. Under **Test a contract change**, click **Edit prompt** once (v2) and **Edit policy** once (v2). The policy requires review for every draft; the original policy's failed results remain separate. Select **Nemotron 3 Super**, **Live Nebius**, **Full suite** and **2 repetitions**. Run qualification and inspect every case. The recorded run passed 16/16, but a fresh run may differ; approve only if the current server result passes.
 
 If qualified, click **Approve this candidate**, then process the first board issue. The recorded held-out action produced a `bug`/`engineering` draft marked for human review; no message was sent. A fresh live probe compares repeated observations under the same contract. The archived probe used 16 new calls against 16 baseline observations and found no detected change (p = 1.0); this small panel is not a stability guarantee. To inspect stale-approval refusal, choose **Edit tools**, then **Try governed action**. The previous draft remains and the next issue is unchanged. The server must refuse the changed contract.
 

@@ -4,7 +4,7 @@ Project name: **ReleaseProof**
 Tagline: **Know which agent release is allowed to act—and why.**
 Track: **Best Apps and Agents**
 
-The story below is ready to paste. The public video link is confirmed published; final submission remains a separate entrant action.
+This copy was prepared for the entrant's Devpost submission, confirmed at approximately 11:11 a.m. Eastern on October 30, 2026. The public video is published. Public live dispatch is now disabled; judges can use the fixture workbench and preserved actual live evidence.
 
 ## Inspiration
 

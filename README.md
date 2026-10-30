@@ -6,6 +6,8 @@ ReleaseProof is a small workbench for qualifying an issue-triage agent before pr
 
 The bundled workflow reads synthetic issues, chooses a label and route, and prepares a response draft. An approved agent can update an isolated local demo board. It never sends a response to a real issue tracker or person.
 
+**Judge access:** public live inference is currently disabled following the confirmed October 30 submission. Use the [public fixture workbench](https://jemsbhai-releaseproof.hf.space), [recorded actual live calls and failures](https://jemsbhai-releaseproof.hf.space/assets/observations.html), and [2:24 demo video](https://youtu.be/1ZAR8XT7tiA). These require no account or API key; fixture results are not fresh model measurements. Local live reproduction remains documented below for an independently configured provider account and spending authority.
+
 ## Start locally
 
 Requires Python 3.12. From the repository root:
