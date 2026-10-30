@@ -1,5 +1,9 @@
 # ReleaseProof
 
+![ReleaseProof — proof before permission](artifacts/submission/01-cover.jpg)
+
+[Devpost entry](https://devpost.com/software/releaseproof-yr8e0t) · [Architecture](artifacts/submission/02-architecture.jpg) · [Measured results](artifacts/submission/03-measured-results.jpg) · [Visual walkthrough](artifacts/submission/README.md)
+
 **An agent release decision backed by the exact evidence that was tested.**
 
 ReleaseProof is a small workbench for qualifying an issue-triage agent before promoting it. It binds the release decision to the model, prompt, tool contract, policy, and evidence; reserves inference budget before calls; and holds future actions when the release changes or a controlled drift probe fails.

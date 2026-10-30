@@ -1,0 +1,19 @@
+{
+  "size": [
+    1800,
+    1200
+  ],
+  "format": "JPEG",
+  "method": "Original HTML/CSS diagrams and typography; unmodified genuine CUA screenshots embedded with contain scaling. No fabricated UI or model outputs.",
+  "screenshots_source": "../video/raw/current/manifest.json",
+  "images": [
+    "01-cover.jpg",
+    "02-architecture.jpg",
+    "03-measured-results.jpg",
+    "04-qualification.jpg",
+    "05-reviewed-draft.jpg",
+    "06-stale-approval.jpg",
+    "07-budget.jpg",
+    "08-drift.jpg"
+  ]
+}

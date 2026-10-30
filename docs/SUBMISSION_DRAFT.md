@@ -4,57 +4,65 @@ Project name: **ReleaseProof**
 Tagline: **Know which agent release is allowed to act—and why.**
 Track: **Best Apps and Agents**
 
-This copy was prepared for the entrant's Devpost submission, confirmed at approximately 11:11 a.m. Eastern on October 30, 2026. The public video is published. Public live dispatch is now disabled; judges can use the fixture workbench and preserved actual live evidence.
+Submission was confirmed at approximately 11:11 a.m. Eastern on October 30, 2026. The entrant subsequently requested a stronger visual presentation; the revised story and eight-image gallery below were prepared before the 1 p.m. deadline. The public video is published. Public live dispatch is now disabled; judges can use the fixture workbench and preserved actual live evidence.
 
-## Inspiration
+## Proof before permission
 
-An agent can pass a test and still be running a different prompt, tool contract, or policy when it takes its next action. Switching models adds another decision: does the new configuration perform the actual workflow well enough, and what will qualification and monitoring cost?
+**ReleaseProof is a release workbench for developers whose AI agents use tools.** It connects measured behavior, a spending budget, and explicit approval to the exact version that will act.
 
-I built ReleaseProof for that release decision. My existing work on Pollard, Hashrope, and Epicormic supplied the foundations. ReleaseProof brings them together in a new, runnable issue-triage application with a new interface and synthetic workload.
+The demonstrated workflow is support triage: classify an issue, choose its route, and prepare a response draft. Before an agent can update the isolated demo board, it must pass the full qualification suite and earn approval. The server checks that approval again before every board action.
 
-## What it does
+**The defining moment:** a live NVIDIA model produced an approved, reviewable draft. I then changed its tools contract. The server refused the next action, left the board unchanged, and made no new provider call. The old result could not authorize the changed release.
 
-ReleaseProof qualifies a candidate against eight public synthetic cases, records its exact model/prompt/tool/policy/evidence contract, and makes promotion explicit. An approved candidate can label, route, and save a draft response on an isolated four-issue demo board. The server checks approval again before each board action and refuses stale approval after the contract changes.
+[Try the fixture workbench](https://jemsbhai-releaseproof.hf.space) · [Inspect the actual live evidence](https://jemsbhai-releaseproof.hf.space/assets/observations.html) · [Watch the 2:24 walkthrough](https://youtu.be/1ZAR8XT7tiA) · [Read the MIT source](https://github.com/jemsbhai/releaseproof)
 
-Its budget controller reserves worst-case call cost before dispatch, reconciles observed usage, and protects validation/recovery capacity. A shared durable ledger covers local and public instances. Pollard enforces execution policy; Hashrope preserves versioned content; Epicormic compares repeated behavioral observations and can hold future actions. A hold never claims to undo an action already completed.
+## Inspiration: the gap between testing and acting
 
-## How I built it
+A model score does not answer the whole release question. The prompt may change, the agent may gain a tool, the review policy may differ, or repeated behavior may shift. Qualification and monitoring also consume a budget.
 
-A compact Python/FastAPI server serves a buildless JavaScript interface and persists session state in SQLite. Live inference uses NVIDIA open models through Nebius Token Factory's OpenAI-compatible chat-completions endpoint. Model weights stay remote; the project needs no GPU or local model download. Firestore provides the shared spending authority, and a free CPU Hugging Face Docker Space hosts the app.
+I built ReleaseProof for the developer making that decision: **which exact agent may act, on what evidence, and within what spending limit?** My work on Pollard, Hashrope, and Epicormic supplied the foundations; this hackathon brought them together in a new application and a concrete issue-triage workflow.
 
-Deterministic checks assess labels, routes, human-review requirements and output schema. Full-suite qualification is required: a four-case smoke test cannot authorize promotion. Canonical SHA-256 fingerprints bind approvals to the tested contract; Hashrope versions retain the underlying content. The UI distinguishes live calls, synthetic fixtures, recorded observations and injected faults.
+The intended impact is practical: make a release refusal, approval, and subsequent change inspectable in one place before connecting an agent to a real issue tracker. The working demonstration is deliberately bounded; it does not claim production adoption or measured business savings.
 
-## What actually happened
+## How it works
 
-The gate refused real model outputs that looked plausible but violated the workflow. Under prompt v1, Lightning passed 10 of 16 checks and Super 11 of 16 in the equal-panel comparison. Under the revised v2 prompt, Lightning passed 13 of 16 and Super 14 of 16. Neither candidate met the full-pass threshold, and neither result was silently repaired or promoted. Separate one-repetition Lightning pilots and every failure are retained.
+![ReleaseProof architecture: exact-contract governance, reservation before inference, and behavioral monitoring](https://raw.githubusercontent.com/jemsbhai/releaseproof/main/artifacts/submission/02-architecture.jpg)
 
-The failures were useful: invalid routing, missing review for forged authority, and unnecessary review for a benign credential question. Some fluent drafts also invented product details. That last problem is outside our current deterministic checks, and the evidence report says so. A separate Ultra diagnostic also failed, at 13/16.
+Three controls share the same release context:
 
-I then tested one explicitly different policy: every draft requires human review. Super with prompt v2 and this reviewed-drafts policy passed 16/16. Label and route checks remained unchanged; the expected review flag became true for every case. This is a more supervised workflow, not autonomous-triage success or a repaired original score.
+- **Smart budgeting:** reserve conservative input and capped-output cost before dispatch, reconcile observed usage afterward, reject work that cannot fit, and preserve capacity for validation and recovery. Local and hosted instances share a durable Firestore spending authority.
+- **Smart governance:** Pollard enforces execution policy. Approval binds the server's exact current contract and qualification evidence; changing the model, prompt, tools, or policy invalidates it. A smoke test cannot authorize promotion.
+- **Drift mitigation:** Epicormic compares repeated behavioral observations. A hold blocks future actions, while fallback still needs fresh qualification and approval. Completed actions remain in the audit trail. Hashrope retains versioned content and evidence, with SHA-256 fingerprints binding the release decision.
 
-After explicit approval, a fresh held-out call saved a draft on the local board. Changing the tools contract invalidated approval; the next action was refused without changing the board or making a provider call. A fresh qualification under the same reviewed-drafts contract again passed 16/16. Its live probe compared 16 new calls with 16 recorded baseline observations and found no detected behavioral change (p = 1.0). With only two samples per issue, that is not a stability guarantee. Two earlier storage-headroom refusals before dispatch are also preserved.
+Python/FastAPI serves a buildless JavaScript interface, with SQLite session persistence and free CPU hosting on Hugging Face. **NVIDIA Nemotron models run remotely through Nebius Token Factory.** The application needs no local weights or GPU. The interface distinguishes live calls, recorded observations, synthetic fixtures, and injected faults.
 
-The complete archived local evaluation contains 145 unique provider calls and 81,949 tokens at $0.031828 estimated token cost, including pilots, all failures, the diagnostic, qualification replication, board action and fresh probe calls. Independent browser demonstrations are recorded separately. This is a tiny public development panel, not a general model benchmark; token-cost estimates are not invoices.
+## What the real calls showed
 
-The recorded-evidence page is available without credentials and makes no new inference calls. The labelled fixture mode demonstrates the complete approval, board action, stale-approval refusal, and controlled injected-drift workflow even when a live candidate fails qualification or live access is unavailable.
+![Measured local results: original-policy candidates stayed blocked; a separate review-all policy passed 16 of 16](https://raw.githubusercontent.com/jemsbhai/releaseproof/main/artifacts/submission/03-measured-results.jpg)
 
-## Product feedback
+**The gate found useful failures.** On the original selective-review policy, the equal-panel prompt-v1 runs passed 10/16 for Lightning and 11/16 for Super. With prompt v2, Lightning reached 13/16 and Super 14/16; a separate Ultra diagnostic reached 13/16. All stayed blocked. Invalid routing, missed review for forged authority, and unnecessary review on a benign question remained visible in the evidence.
 
-Nebius Token Factory accepted the declared JSON-output requests, disabled-thinking setting, zero temperature and bounded output tokens in our recorded calls. Its hosted endpoint let a small CPU app exercise NVIDIA models without downloading weights. Returned usage and request identifiers helped us preserve auditable observations and estimate costs. These successful requests do not imply successful task decisions.
+I then tested an explicitly different workflow: **every draft requires human review.** Super with prompt v2 and this policy passed 16/16. Label and route checks were unchanged; the expected review flag became true for every case. This supports a more supervised workflow, not a better score on the original task. A later fresh qualification replicated 16/16.
 
-The NVIDIA models produced useful structured triage responses, but our small adversarial panel exposed review-flag and policy-following failures. We would value stronger, documented structured-policy examples and revision-aware behavior information. Prompt v2 improved the measured counts, but its declared prompt change cannot be described as silent provider drift or attributed solely to the model.
+After explicit approval, a held-out live call produced a draft marked for review. The tools edit and subsequent server refusal demonstrated that approval remains tied to current evidence. A live probe compared 16 fresh calls with 16 recorded baseline observations and detected no behavioral change (p = 1.0). Separately, an injected synthetic shift produced 80 observations, p = 0.001, and a hold. These are different experiments; the synthetic result is not provider drift.
 
-The entrant rates Nebius recommendation 6/10 and the experience versus Ollama and Lambda 7/10. These are personal ratings, not a measured cross-provider benchmark. Nebius AI Cloud and Tavily were not used.
+**202 actual NVIDIA calls are accounted for:** 145 archived local evaluation calls and 57 in the independent public-browser demonstration. All pilots, failures, diagnostics, replications, board actions, and probes are retained. Total estimated token cost was $0.040669, covered by promotional credit. This is observed usage multiplied by recorded prices, not an invoice or a savings claim.
 
-## What I learned and what comes next
+## Challenges and what I learned
 
-Behavioral consistency and correctness are different. An unchanged configuration can be wrong; a changed configuration needs current evidence before it acts. Small repeated probes have low statistical power and cannot establish general safety or the cause of a difference.
+Fluent output can still violate a workflow. Some drafts also invented product details that our deterministic label, route, schema, and review checks do not score. That limitation is visible, not repaired away. The eight-case public development panel is small; two samples per case cannot establish general safety, stability, or the cause of behavioral differences.
 
-Next steps are a larger independently authored evaluation set, stronger draft-factuality checks, and better evidence for workflow-specific policy decisions. The current board uses known-answer synthetic cases and does not establish correctness on arbitrary real issues. All responses remain drafts; nothing is sent to a real customer or issue tracker.
+The engineering challenge was making the controls agree: preserve the recovery reserve while qualifying, bind approval to the exact evidence, refuse stale actions on the server, and retain every failure. The repository's **88 passing offline tests** check implementation behavior; they are separate from model-quality measurements.
+
+Nebius's hosted endpoint let a CPU-only application exercise NVIDIA models, with usage and request identifiers supporting an inspectable record. Stronger structured-policy examples and revision-aware behavior information would make release decisions easier. Next steps are independently authored evaluation cases, draft-factuality checks, and a reviewed integration with a real issue tracker.
+
+## Try it and inspect it
+
+The public app currently runs the clearly labelled **fixture workflow**; live dispatch is off. Run the full suite, approve, process an issue, edit the tools, and try another governed action. Use the recorded-evidence link for actual Nebius outcomes and failures. No account or API key is needed for either path. The gallery and video show genuine captured application states, with live versus synthetic provenance labelled.
 
 ## Existing foundations and new work
 
-Pollard 1.6.2, Hashrope 0.2.2 and Epicormic 0.2.0 are my preexisting libraries, used as actual dependencies. New hackathon work includes ReleaseProof's server and provider integration, qualification/promotion workflow, budget ledger integration, contract binding, browser interface, synthetic dataset, board, tests, evidence report and documentation. Earlier Canopy team work inspired the problem; its frontend, benchmark and application code were not copied. Codex assisted with research, implementation, tests and drafts. The source is MIT licensed; dependencies retain their own licenses.
+Pollard 1.6.2, Hashrope 0.2.2, and Epicormic 0.2.0 are my preexisting libraries, used as actual dependencies. New hackathon work includes the server/provider integration, release workflow, shared budget integration, contract binding, interface, synthetic dataset, demo board, tests, evidence report, and presentation materials. Earlier Canopy team work inspired the problem; its frontend, benchmark, and application code were not copied. Codex assisted with research, implementation, tests, and drafts. The source is MIT licensed; dependencies retain their licenses.
 
 ## Form links and technologies
 
