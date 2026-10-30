@@ -1,0 +1,7 @@
+pollard==1.6.2
+epicormic==0.2.0
+hashrope==0.2.2
+fastapi==0.162.0
+uvicorn==0.54.0
+httpx==0.28.1
+google-auth[requests]==2.62.0
