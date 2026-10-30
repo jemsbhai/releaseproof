@@ -5,7 +5,8 @@ ReleaseProof helps a developer decide whether an exact issue-triage agent releas
 - Application: [ReleaseProof demo](https://jemsbhai-releaseproof.hf.space)
 - Source: [jemsbhai/releaseproof](https://github.com/jemsbhai/releaseproof)
 - Track: **Best Apps and Agents**
-- Recorded evidence: [actual model calls, failures and workflow decisions](https://jemsbhai-releaseproof.hf.space/assets/observations.html). This read-only page requires no account or inference access. The public video link is awaiting verified upload.
+- Recorded evidence: [actual model calls, failures and workflow decisions](https://jemsbhai-releaseproof.hf.space/assets/observations.html). This read-only page requires no account or inference access.
+- Public video: [ReleaseProof walkthrough — 2:24](https://youtu.be/1ZAR8XT7tiA), using actual captured application states with shortened pauses and disclosed synthesized narration.
 
 **Availability:** Nebius lists this Super model for serverless retirement on November 9, 2026, without automatic rerouting. No migration was performed. Use the preserved recorded evidence and fixture workflow during later judging; fresh Super calls cannot be promised. [Official notice](https://docs.tokenfactory.nebius.com/model-deprecations-november-2026.md).
 

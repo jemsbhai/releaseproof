@@ -88,7 +88,7 @@ Latest offline verification, October 30, 2026: **88 tests passed** at source com
 
 ## Hackathon submission
 
-Target track: **Best Apps and Agents**. Required runtime: **NVIDIA Nemotron through Nebius Token Factory**. [Public workbench](https://jemsbhai-releaseproof.hf.space) · [Recorded live observations](https://jemsbhai-releaseproof.hf.space/assets/observations.html). The public video URL will be added after verification. Live access is bounded by the shared allowance and provider availability; the labelled fixture workflow and recorded report remain useful without fresh inference. Export session evidence before leaving because the free host may reset session storage on restart.
+Target track: **Best Apps and Agents**. Required runtime: **NVIDIA Nemotron through Nebius Token Factory**. [Public workbench](https://jemsbhai-releaseproof.hf.space) · [Recorded live observations](https://jemsbhai-releaseproof.hf.space/assets/observations.html) · [Public demo video — 2:24](https://youtu.be/1ZAR8XT7tiA). The video uses genuine recorded application states with shortened pauses and disclosed synthesized narration. Live access is bounded by the shared allowance and provider availability; the labelled fixture workflow and recorded report remain useful without fresh inference. Export session evidence before leaving because the free host may reset session storage on restart.
 
 Nebius schedules the tested Super serverless model's retirement for **November 9, 2026**, with no automatic rerouting. No replacement model has been evaluated here. Preserve fixture and recorded-evidence access through December 23; fresh Super access is not promised. [Official notice](https://docs.tokenfactory.nebius.com/model-deprecations-november-2026.md).
 

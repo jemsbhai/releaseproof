@@ -1,0 +1,12 @@
+ReleaseProof — agent release workbench for the Nebius × NVIDIA Global AI Hackathon.
+
+Public app: https://jemsbhai-releaseproof.hf.space/
+MIT source and evaluation details: https://github.com/jemsbhai/releaseproof
+
+This 2:24 walkthrough uses genuine captured application states from October 30, 2026, with pauses shortened and locally synthesized narration. It shows actual NVIDIA open-model calls through Nebius Token Factory, preserved qualification failures, explicit approval, a held-out draft, fresh behavioral probes, and a server-side refusal after the tool contract changes. The final drift segment is a separate, clearly labelled controlled synthetic experiment, not a claim of provider drift.
+
+Models shown: nvidia/Nemotron-3_5-Lightning and nvidia/nemotron-3-super-120b-a12b. The passing Super release uses prompt v2 and policy v2, which requires human review for EVERY draft. This is a distinct, stricter contract, not a like-for-like model ranking. The small synthetic corpus and low-power behavioral panel do not certify general safety, correctness, or equivalence. API costs are estimates from provider-reported tokens; fixture costs are simulated. No customer messages are sent.
+
+Preexisting foundations: Pollard 1.6.2, Hashrope 0.2.2, and Epicormic 0.2.0 are existing open-source libraries used as actual dependencies. The ReleaseProof application, new interface, isolated support-triage corpus, release-contract enforcement, shared budget integration, and hackathon evaluation work were built for this project. Canopy inspired the idea; its team-owned frontend and benchmark were not copied. See docs/NEW_WORK.md in the repository for disclosure.
+
+Narration: Microsoft Zira text-to-speech. Screenshots captured through the real browser interface; no fabricated UI, output replacement, or hidden result repair.

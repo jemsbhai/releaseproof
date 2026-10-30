@@ -4,7 +4,7 @@ Project name: **ReleaseProof**
 Tagline: **Know which agent release is allowed to act—and why.**
 Track: **Best Apps and Agents**
 
-The story below is ready to paste. Add only the verified public video URL in the form links; never submit the pending-link note.
+The story below is ready to paste. The public video link is confirmed published; final submission remains a separate entrant action.
 
 ## Inspiration
 
@@ -63,7 +63,7 @@ Pollard 1.6.2, Hashrope 0.2.2 and Epicormic 0.2.0 are my preexisting libraries, 
 - Public source: https://github.com/jemsbhai/releaseproof
 - Judge instructions: https://github.com/jemsbhai/releaseproof/blob/main/docs/JUDGE_GUIDE.md
 - New-work disclosure: https://github.com/jemsbhai/releaseproof/blob/main/docs/NEW_WORK.md
-- YouTube: pending verified public upload; do not submit this placeholder.
+- Public YouTube video (2:24): https://youtu.be/1ZAR8XT7tiA
 
 Built With: Python, FastAPI, JavaScript, Nebius Token Factory, NVIDIA Nemotron, Pollard, Hashrope, Epicormic, SQLite, Google Cloud Firestore, Hugging Face.
 
