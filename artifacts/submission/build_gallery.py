@@ -91,3 +91,14 @@ shot('08-drift','Notice change. Hold what comes next.','A controlled fixture exp
 manifest={'size':[1800,1200],'format':'JPEG','method':'Original HTML/CSS diagrams and typography; unmodified genuine CUA screenshots embedded with contain scaling. No fabricated UI or model outputs.','screenshots_source':'../video/raw/current/manifest.json','images':[p.stem+'.jpg' for p in sorted(ROOT.glob('0*.html'))]}
 (ROOT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 print('Authored',len(manifest['images']),'gallery pages')
+
+thumbnail=f'''<!doctype html><html lang="en"><meta charset="utf-8"><title>ReleaseProof project card</title><style>{CSS}
+.thumb{{width:1800px;height:1200px;background:#122834;color:#f4f5e9;padding:100px;position:relative}}
+.thumb .brand{{font-size:114px;gap:35px;letter-spacing:-5px}}.thumb .brand svg{{width:136px;height:136px;color:#d3e7b5}}
+.thumb h1{{font-size:141px;max-width:1400px;line-height:1.05;letter-spacing:-6px;margin:84px 0 43px}}
+.thumb p{{font-size:45px;letter-spacing:-.5px;color:#bad0bd;margin:0}}
+.steps{{display:flex;gap:24px;align-items:center;margin-top:90px;font-size:38px}}
+.step{{border:2px solid #71876b;border-radius:20px;padding:25px 38px;background:#1e3b39;color:#e7efda;font-weight:650}}
+.thumb .bottom{{position:absolute;bottom:80px;left:100px;right:100px;border-top:2px solid #4c6357;padding-top:33px;display:flex;justify-content:space-between;font-size:32px;color:#bfd1bd}}
+</style><body><main class="thumb"><div class="brand">{ICON}ReleaseProof</div><h1>Proof before<br>permission.</h1><p>The release workbench for AI agents.</p><div class="steps"><span class="step">QUALIFY</span><span>→</span><span class="step">APPROVE</span><span>→</span><span class="step">REVALIDATE</span></div><div class="bottom"><span>NVIDIA Nemotron on Nebius</span><span>Budget · Governance · Drift</span></div></main></body></html>'''
+(ROOT/'thumbnail.html').write_text(thumbnail,encoding='utf-8')

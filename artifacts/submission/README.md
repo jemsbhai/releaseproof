@@ -2,6 +2,8 @@
 
 Eight original 1800 × 1200 (3:2) gallery panels, prepared October 30, 2026 before the hackathon deadline. Every JPEG is below Devpost's 5 MB limit. HTML/CSS layouts are rendered through the browser screenshot API; embedded application images are unmodified genuine CUA captures from the completed demonstration. No UI state, outputs, or measurements were fabricated.
 
+The simpler [project-card thumbnail](thumbnail.jpg) uses the same visual identity with larger text for gallery-card legibility. Devpost now includes all eight captioned images, this thumbnail, a revised pitch, and the story's two embedded diagrams. Public signed-out verification retained the submitted status.
+
 1. [Cover: proof before permission](01-cover.jpg)
 2. [Architecture and the three controls](02-architecture.jpg)
 3. [Measured local model results](03-measured-results.jpg)

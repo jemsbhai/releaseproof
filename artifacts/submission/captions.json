@@ -1,10 +1,10 @@
 [
-  {"file":"01-cover.jpg","caption":"ReleaseProof — proof before permission. Actual recorded NVIDIA calls on Nebius; the review-all contract is distinct from the original policy."},
-  {"file":"02-architecture.jpg","caption":"Architecture: reserve before inference, bind approval to exact evidence, and revalidate every action. Actual Pollard, Hashrope, and Epicormic dependencies."},
-  {"file":"03-measured-results.jpg","caption":"Measured local results. Original-policy candidates stayed blocked; Super passed under a separate policy requiring human review for every draft."},
-  {"file":"04-qualification.jpg","caption":"Recorded live public-browser qualification: Super + prompt v2 + review-all policy, 16/16. The adjacent Lightning run has a different policy."},
-  {"file":"05-reviewed-draft.jpg","caption":"Actual live held-out issue: label, route, and a draft marked Needs review. Nothing was sent to a customer or external issue tracker."},
-  {"file":"06-stale-approval.jpg","caption":"Recorded server refusal after the tools contract changed: the old approval could not authorize another action. Board unchanged; no new model call."},
-  {"file":"07-budget.jpg","caption":"Recorded budget evidence: reserve conservative call cost, reconcile provider usage, and preserve recovery capacity. Token costs are estimates."},
-  {"file":"08-drift.jpg","caption":"Controlled synthetic drift: real Epicormic statistics, 80 observations, p=0.001, and a hold. Separate live probe: p=1, with low statistical power."}
+  {"file":"01-cover.jpg","caption":"Proof before permission. Recorded NVIDIA calls on Nebius; the review-all contract is distinct from the original policy."},
+  {"file":"02-architecture.jpg","caption":"Architecture: reserve before inference, bind approval to evidence, revalidate every action. Pollard + Hashrope + Epicormic."},
+  {"file":"03-measured-results.jpg","caption":"Local results: original-policy candidates stayed blocked. Super passed a separate policy requiring human review for every draft."},
+  {"file":"04-qualification.jpg","caption":"Recorded live browser run: Super + prompt v2 + review-all policy, 16/16. Adjacent Lightning uses a different policy."},
+  {"file":"05-reviewed-draft.jpg","caption":"Actual live held-out issue: label, route, and a draft marked Needs review. No message sent to a customer or issue tracker."},
+  {"file":"06-stale-approval.jpg","caption":"Tools changed; the server refused the next action. Old approval invalid, board unchanged, no new model call."},
+  {"file":"07-budget.jpg","caption":"Recorded budget evidence: reserve before dispatch, reconcile provider usage, preserve recovery capacity. Costs are estimates."},
+  {"file":"08-drift.jpg","caption":"Injected synthetic drift: 80 observations, p=0.001, hold. Separate live probe: p=1, low power. Neither proves correctness."}
 ]

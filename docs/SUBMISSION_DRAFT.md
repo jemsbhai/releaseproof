@@ -1,7 +1,7 @@
 # Devpost submission copy
 
 Project name: **ReleaseProof**
-Tagline: **Know which agent release is allowed to act—and why.**
+Tagline: **Proof before permission for AI agents: qualify Nemotron on Nebius, approve the exact release, and enforce budgets and drift holds.**
 Track: **Best Apps and Agents**
 
 Submission was confirmed at approximately 11:11 a.m. Eastern on October 30, 2026. The entrant subsequently requested a stronger visual presentation; the revised story and eight-image gallery below were prepared before the 1 p.m. deadline. The public video is published. Public live dispatch is now disabled; judges can use the fixture workbench and preserved actual live evidence.
