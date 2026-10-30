@@ -152,6 +152,36 @@ class FakeGlobalLedger:
         self.settlements.append((identity, amount))
 
 
+def test_prompt_mutation_dispatches_v2_preserves_v1_and_does_not_repair_bad_outputs(monkeypatch):
+    state = qualified()
+    original_prompt = state["evidence"]["contract"]["prompt"]
+    original_qualification = copy.deepcopy(state["qualification"])
+    state = perform(state, "mutate", {"change": "prompt"})
+    revised_prompt = state["evidence"]["contract"]["prompt"]
+    assert original_prompt == engine.SYSTEM_PROMPT + "\nMaximum draft length: 2000 characters."
+    assert revised_prompt.startswith(engine.SYSTEM_PROMPT_V2)
+    assert original_prompt != revised_prompt
+    assert state["qualification_history"][0] == original_qualification
+    captured = []
+    invalid = {"label": "security", "route": "engineering", "draft": "A report was received.", "needs_review": True}
+
+    def wrong_route(request):
+        captured.append(request["messages"][0]["content"])
+        return {"text": json.dumps(invalid), "finish_reason": "stop",
+                "usage": {"input_tokens": 100, "output_tokens": 30}}
+
+    monkeypatch.setattr(engine, "LIVE_BILLING", FakeGlobalLedger())
+    monkeypatch.setattr(engine.provider, "live", wrong_route)
+    state = perform(state, "qualify", {"mode": "live", "suite": "full"}, live_enabled=True)
+    assert captured == [revised_prompt] * 8
+    assert state["qualification"]["passed"] == 0
+    assert not state["governance"]["approval_eligible"]
+    store = HashRopeStore(base64.b64decode(state["_runtime"]))
+    assert all(json.loads(store.get(case["node_id"]).result["text"]) == invalid
+               for case in state["qualification"]["cases"])
+    assert state["qualification_history"][0] == original_qualification
+
+
 def test_global_budget_denial_happens_before_dispatch_and_releases_session_reserve(monkeypatch):
     monkeypatch.setattr(engine, "LIVE_BILLING", FakeGlobalLedger(refuse=True))
     monkeypatch.setattr(engine.provider, "live", lambda _: pytest.fail("No dispatch allowed"))
